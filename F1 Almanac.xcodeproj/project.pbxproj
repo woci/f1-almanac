@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		634113B42857513F000113C7 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B32857513F000113C7 /* Season.swift */; };
 		634113B628575169000113C7 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B528575169000113C7 /* SeasonViewModel.swift */; };
+		634113B928576A4B000113C7 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B828576A4B000113C7 /* SeasonModel.swift */; };
+		634113BF28576E8D000113C7 /* RaceDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113BE28576E8D000113C7 /* RaceDetailsModel.swift */; };
 		635004132851E79900C2C082 /* RaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* RaceDetails.swift */; };
 		635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */; };
 		63500418285220A400C2C082 /* FontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63500417285220A400C2C082 /* FontView.swift */; };
@@ -60,6 +62,8 @@
 /* Begin PBXFileReference section */
 		634113B32857513F000113C7 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
 		634113B528575169000113C7 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
+		634113B828576A4B000113C7 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
+		634113BE28576E8D000113C7 /* RaceDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsModel.swift; sourceTree = "<group>"; };
 		635004122851E79900C2C082 /* RaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetails.swift; sourceTree = "<group>"; };
 		635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewModel.swift; sourceTree = "<group>"; };
 		63500417285220A400C2C082 /* FontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontView.swift; sourceTree = "<group>"; };
@@ -134,6 +138,22 @@
 				634113B528575169000113C7 /* SeasonViewModel.swift */,
 			);
 			path = Season;
+			sourceTree = "<group>";
+		};
+		634113BA28576A5B000113C7 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				634113B828576A4B000113C7 /* SeasonModel.swift */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		634113C028576E90000113C7 /* RaceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				634113BE28576E8D000113C7 /* RaceDetailsModel.swift */,
+			);
+			path = RaceDetails;
 			sourceTree = "<group>";
 		};
 		635004112851E78500C2C082 /* RaceDetails */ = {
@@ -279,6 +299,8 @@
 			isa = PBXGroup;
 			children = (
 				63C6EB432848EFB70028554F /* Dashboard */,
+				634113BA28576A5B000113C7 /* Season */,
+				634113C028576E90000113C7 /* RaceDetails */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -492,11 +514,13 @@
 				63DDD463284F7EB100B78236 /* Font+custom.swift in Sources */,
 				63DDD465284F806700B78236 /* F1Fonts.swift in Sources */,
 				63DDD457284A418100B78236 /* WikiMainImage.swift in Sources */,
+				634113B928576A4B000113C7 /* SeasonModel.swift in Sources */,
 				63DDD454284A3C2A00B78236 /* ImageService.swift in Sources */,
 				63C6EB362848E9510028554F /* URLSession + asyncSend.swift in Sources */,
 				63C6EB3C2848EADE0028554F /* ScheduleRequestBuilder.swift in Sources */,
 				634113B42857513F000113C7 /* Season.swift in Sources */,
 				63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */,
+				634113BF28576E8D000113C7 /* RaceDetailsModel.swift in Sources */,
 				63C6EB4F2848FA570028554F /* Race + dateTime.swift in Sources */,
 				635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */,
 				635004132851E79900C2C082 /* RaceDetails.swift in Sources */,

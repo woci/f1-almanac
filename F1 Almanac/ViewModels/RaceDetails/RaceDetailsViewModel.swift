@@ -8,13 +8,16 @@
 import Foundation
 
 @MainActor class RaceDetailsViewModel: ObservableObject {
-    var race: Race
+    var model: RaceDetailsModel = RaceDetailsModel()
+    var race: Schedule.Season.Race
 
-    init(race: Race) {
+    init(race: Schedule.Season.Race) {
         self.race = race
     }
 
     func onAppear() {
-        
+        if race.dateTime < Date() {
+            
+        }
     }
 }

@@ -9,23 +9,19 @@ import Foundation
 import SwiftUI
 
 struct SeasonView: View {
-    @StateObject var viewModel: RaceDetailsViewModel
-    var body: some View {
-        VStack {
-            ForEach(0..<viewModel.race.sessions.count) { index in
-                let session = viewModel.race.sessions[index]
-                HStack {
-                    Text(session.name ?? "Session").textStyle(.mediumTitle)
-                        .padding(.leading, 16)
-                        .padding(.top, 8)
-                    Spacer()
-                    Text("\(session.date) \(session.time)").textStyle(.mediumBody)
-                        .padding(.trailing, 16)
-                        .padding(.top, 8)
-                }
-            }
-            Spacer()
-        }.navigationTitle(viewModel.race.raceName)
+    @StateObject var viewModel: SeasonViewModel
 
+    var body: some View {
+        ZStack {
+            NavigationView {
+                ScrollView {
+                    VStack {
+                        Text($viewModel.year.wrappedValue)
+                    }
+                }.background(Color.background)
+                    .navigationBarTitle(Text($viewModel.year.wrappedValue), displayMode: .large)
+            }
+            FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
+        }
     }
 }

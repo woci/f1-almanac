@@ -1,0 +1,836 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		634113B42857513F000113C7 /* Season.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B32857513F000113C7 /* Season.swift */; };
+		634113B628575169000113C7 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B528575169000113C7 /* SeasonViewModel.swift */; };
+		635004132851E79900C2C082 /* RaceDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* RaceDetails.swift */; };
+		635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */; };
+		63500418285220A400C2C082 /* FontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63500417285220A400C2C082 /* FontView.swift */; };
+		63A2F9EE28534549003D7899 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2F9ED28534549003D7899 /* Color.swift */; };
+		63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */; };
+		63C6EB0A2848D26B0028554F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB092848D26B0028554F /* AppView.swift */; };
+		63C6EB0C2848D26E0028554F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C6EB0B2848D26E0028554F /* Assets.xcassets */; };
+		63C6EB0F2848D26E0028554F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C6EB0E2848D26E0028554F /* Preview Assets.xcassets */; };
+		63C6EB192848D26E0028554F /* F1_AlmanacTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB182848D26E0028554F /* F1_AlmanacTests.swift */; };
+		63C6EB232848D26E0028554F /* F1_AlmanacUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB222848D26E0028554F /* F1_AlmanacUITests.swift */; };
+		63C6EB252848D26E0028554F /* F1_AlmanacUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB242848D26E0028554F /* F1_AlmanacUITestsLaunchTests.swift */; };
+		63C6EB322848D7700028554F /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB312848D7700028554F /* ScheduleService.swift */; };
+		63C6EB342848E2C60028554F /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB332848E2C60028554F /* ScheduleResponse.swift */; };
+		63C6EB362848E9510028554F /* URLSession + asyncSend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB352848E9510028554F /* URLSession + asyncSend.swift */; };
+		63C6EB3C2848EADE0028554F /* ScheduleRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB3B2848EADE0028554F /* ScheduleRequestBuilder.swift */; };
+		63C6EB3E2848EDB30028554F /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB3D2848EDB30028554F /* DashboardView.swift */; };
+		63C6EB452848EFC40028554F /* DashboardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB442848EFC40028554F /* DashboardModel.swift */; };
+		63C6EB472848F14F0028554F /* InjectedPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB462848F14F0028554F /* InjectedPropertyWrapper.swift */; };
+		63C6EB4A2848F5180028554F /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB492848F5180028554F /* DashboardViewModel.swift */; };
+		63C6EB4D2848F5B70028554F /* CountryFlagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB4C2848F5B70028554F /* CountryFlagService.swift */; };
+		63C6EB4F2848FA570028554F /* Race + dateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB4E2848FA570028554F /* Race + dateTime.swift */; };
+		63DDD454284A3C2A00B78236 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDD453284A3C2A00B78236 /* ImageService.swift */; };
+		63DDD457284A418100B78236 /* WikiMainImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDD456284A418100B78236 /* WikiMainImage.swift */; };
+		63DDD45A284A4D9100B78236 /* PlaceholderAsyncImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDD459284A4D9100B78236 /* PlaceholderAsyncImage.swift */; };
+		63DDD45F284F7E9400B78236 /* Formula1-Wide.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63DDD45C284F7E9400B78236 /* Formula1-Wide.otf */; };
+		63DDD460284F7E9400B78236 /* Formula1-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63DDD45D284F7E9400B78236 /* Formula1-Bold.otf */; };
+		63DDD461284F7E9400B78236 /* Formula1-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 63DDD45E284F7E9400B78236 /* Formula1-Regular.otf */; };
+		63DDD463284F7EB100B78236 /* Font+custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDD462284F7EB100B78236 /* Font+custom.swift */; };
+		63DDD465284F806700B78236 /* F1Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63DDD464284F806700B78236 /* F1Fonts.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		63C6EB152848D26E0028554F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63C6EAFC2848D26B0028554F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63C6EB032848D26B0028554F;
+			remoteInfo = "F1 Almanach";
+		};
+		63C6EB1F2848D26E0028554F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 63C6EAFC2848D26B0028554F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 63C6EB032848D26B0028554F;
+			remoteInfo = "F1 Almanach";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		634113B32857513F000113C7 /* Season.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Season.swift; sourceTree = "<group>"; };
+		634113B528575169000113C7 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
+		635004122851E79900C2C082 /* RaceDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetails.swift; sourceTree = "<group>"; };
+		635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewModel.swift; sourceTree = "<group>"; };
+		63500417285220A400C2C082 /* FontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontView.swift; sourceTree = "<group>"; };
+		63A2F9ED28534549003D7899 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		63C6EB042848D26B0028554F /* F1 Almanac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "F1 Almanac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacApp.swift; sourceTree = "<group>"; };
+		63C6EB092848D26B0028554F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
+		63C6EB0B2848D26E0028554F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		63C6EB0E2848D26E0028554F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		63C6EB142848D26E0028554F /* F1 AlmanacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "F1 AlmanacTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63C6EB182848D26E0028554F /* F1_AlmanacTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacTests.swift; sourceTree = "<group>"; };
+		63C6EB1E2848D26E0028554F /* F1 AlmanacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "F1 AlmanacUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		63C6EB222848D26E0028554F /* F1_AlmanacUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacUITests.swift; sourceTree = "<group>"; };
+		63C6EB242848D26E0028554F /* F1_AlmanacUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		63C6EB312848D7700028554F /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
+		63C6EB332848E2C60028554F /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
+		63C6EB352848E9510028554F /* URLSession + asyncSend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession + asyncSend.swift"; sourceTree = "<group>"; };
+		63C6EB3B2848EADE0028554F /* ScheduleRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleRequestBuilder.swift; sourceTree = "<group>"; };
+		63C6EB3D2848EDB30028554F /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
+		63C6EB442848EFC40028554F /* DashboardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardModel.swift; sourceTree = "<group>"; };
+		63C6EB462848F14F0028554F /* InjectedPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InjectedPropertyWrapper.swift; sourceTree = "<group>"; };
+		63C6EB492848F5180028554F /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		63C6EB4C2848F5B70028554F /* CountryFlagService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFlagService.swift; sourceTree = "<group>"; };
+		63C6EB4E2848FA570028554F /* Race + dateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Race + dateTime.swift"; sourceTree = "<group>"; };
+		63DDD453284A3C2A00B78236 /* ImageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		63DDD456284A418100B78236 /* WikiMainImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WikiMainImage.swift; sourceTree = "<group>"; };
+		63DDD459284A4D9100B78236 /* PlaceholderAsyncImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderAsyncImage.swift; sourceTree = "<group>"; };
+		63DDD45C284F7E9400B78236 /* Formula1-Wide.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Formula1-Wide.otf"; sourceTree = "<group>"; };
+		63DDD45D284F7E9400B78236 /* Formula1-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Formula1-Bold.otf"; sourceTree = "<group>"; };
+		63DDD45E284F7E9400B78236 /* Formula1-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Formula1-Regular.otf"; sourceTree = "<group>"; };
+		63DDD462284F7EB100B78236 /* Font+custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+custom.swift"; sourceTree = "<group>"; };
+		63DDD464284F806700B78236 /* F1Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1Fonts.swift; sourceTree = "<group>"; };
+		63DDD466284F945000B78236 /* F1-Almanac-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "F1-Almanac-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		63C6EB012848D26B0028554F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB112848D26E0028554F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB1B2848D26E0028554F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		634113B22857512C000113C7 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				634113B32857513F000113C7 /* Season.swift */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		634113B72857516D000113C7 /* Season */ = {
+			isa = PBXGroup;
+			children = (
+				634113B528575169000113C7 /* SeasonViewModel.swift */,
+			);
+			path = Season;
+			sourceTree = "<group>";
+		};
+		635004112851E78500C2C082 /* RaceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				635004122851E79900C2C082 /* RaceDetails.swift */,
+			);
+			path = RaceDetails;
+			sourceTree = "<group>";
+		};
+		635004142851E7F300C2C082 /* RaceDetails */ = {
+			isa = PBXGroup;
+			children = (
+				635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */,
+			);
+			path = RaceDetails;
+			sourceTree = "<group>";
+		};
+		63C6EAFB2848D26B0028554F = {
+			isa = PBXGroup;
+			children = (
+				63C6EB062848D26B0028554F /* F1 Almanac */,
+				63C6EB172848D26E0028554F /* F1 AlmanacTests */,
+				63C6EB212848D26E0028554F /* F1 AlmanacUITests */,
+				63C6EB052848D26B0028554F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		63C6EB052848D26B0028554F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB042848D26B0028554F /* F1 Almanac.app */,
+				63C6EB142848D26E0028554F /* F1 AlmanacTests.xctest */,
+				63C6EB1E2848D26E0028554F /* F1 AlmanacUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		63C6EB062848D26B0028554F /* F1 Almanac */ = {
+			isa = PBXGroup;
+			children = (
+				63DDD466284F945000B78236 /* F1-Almanac-Info.plist */,
+				63DDD45B284F7E9400B78236 /* Fonts */,
+				63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */,
+				63C6EB092848D26B0028554F /* AppView.swift */,
+				63C6EB0B2848D26E0028554F /* Assets.xcassets */,
+				63C6EB0D2848D26E0028554F /* Preview Content */,
+				63C6EB372848E9960028554F /* Core */,
+				63C6EB422848EFAD0028554F /* Models */,
+				63C6EB482848F50B0028554F /* ViewModels */,
+				63C6EB3F2848EF520028554F /* Views */,
+				63DDD455284A416F00B78236 /* Entities */,
+				63C6EB382848E9AC0028554F /* Services */,
+			);
+			path = "F1 Almanac";
+			sourceTree = "<group>";
+		};
+		63C6EB0D2848D26E0028554F /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB0E2848D26E0028554F /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		63C6EB172848D26E0028554F /* F1 AlmanacTests */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB182848D26E0028554F /* F1_AlmanacTests.swift */,
+			);
+			path = "F1 AlmanacTests";
+			sourceTree = "<group>";
+		};
+		63C6EB212848D26E0028554F /* F1 AlmanacUITests */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB222848D26E0028554F /* F1_AlmanacUITests.swift */,
+				63C6EB242848D26E0028554F /* F1_AlmanacUITestsLaunchTests.swift */,
+			);
+			path = "F1 AlmanacUITests";
+			sourceTree = "<group>";
+		};
+		63C6EB372848E9960028554F /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB3A2848E9C20028554F /* Extensions */,
+				63C6EB462848F14F0028554F /* InjectedPropertyWrapper.swift */,
+				63DDD464284F806700B78236 /* F1Fonts.swift */,
+				63A2F9ED28534549003D7899 /* Color.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		63C6EB382848E9AC0028554F /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB4B2848F5A60028554F /* CountryFlag */,
+				63C6EB392848E9B40028554F /* Schedule */,
+				63C6EB3B2848EADE0028554F /* ScheduleRequestBuilder.swift */,
+				63DDD453284A3C2A00B78236 /* ImageService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		63C6EB392848E9B40028554F /* Schedule */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB312848D7700028554F /* ScheduleService.swift */,
+				63C6EB4E2848FA570028554F /* Race + dateTime.swift */,
+			);
+			path = Schedule;
+			sourceTree = "<group>";
+		};
+		63C6EB3A2848E9C20028554F /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB352848E9510028554F /* URLSession + asyncSend.swift */,
+				63DDD462284F7EB100B78236 /* Font+custom.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		63C6EB3F2848EF520028554F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				634113B22857512C000113C7 /* Season */,
+				635004112851E78500C2C082 /* RaceDetails */,
+				63DDD458284A4D8100B78236 /* Components */,
+				63C6EB402848EF5E0028554F /* Dashboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		63C6EB402848EF5E0028554F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB3D2848EDB30028554F /* DashboardView.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		63C6EB422848EFAD0028554F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB432848EFB70028554F /* Dashboard */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		63C6EB432848EFB70028554F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB442848EFC40028554F /* DashboardModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		63C6EB482848F50B0028554F /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				635004142851E7F300C2C082 /* RaceDetails */,
+				63C6EB502848FD630028554F /* Dashboard */,
+				634113B72857516D000113C7 /* Season */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		63C6EB4B2848F5A60028554F /* CountryFlag */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB4C2848F5B70028554F /* CountryFlagService.swift */,
+			);
+			path = CountryFlag;
+			sourceTree = "<group>";
+		};
+		63C6EB502848FD630028554F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB492848F5180028554F /* DashboardViewModel.swift */,
+			);
+			path = Dashboard;
+			sourceTree = "<group>";
+		};
+		63DDD455284A416F00B78236 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				63C6EB332848E2C60028554F /* ScheduleResponse.swift */,
+				63DDD456284A418100B78236 /* WikiMainImage.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		63DDD458284A4D8100B78236 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				63DDD459284A4D9100B78236 /* PlaceholderAsyncImage.swift */,
+				63500417285220A400C2C082 /* FontView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		63DDD45B284F7E9400B78236 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				63DDD45C284F7E9400B78236 /* Formula1-Wide.otf */,
+				63DDD45D284F7E9400B78236 /* Formula1-Bold.otf */,
+				63DDD45E284F7E9400B78236 /* Formula1-Regular.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		63C6EB032848D26B0028554F /* F1 Almanac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63C6EB282848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 Almanac" */;
+			buildPhases = (
+				63C6EB002848D26B0028554F /* Sources */,
+				63C6EB012848D26B0028554F /* Frameworks */,
+				63C6EB022848D26B0028554F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "F1 Almanac";
+			productName = "F1 Almanach";
+			productReference = 63C6EB042848D26B0028554F /* F1 Almanac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		63C6EB132848D26E0028554F /* F1 AlmanacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63C6EB2B2848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 AlmanacTests" */;
+			buildPhases = (
+				63C6EB102848D26E0028554F /* Sources */,
+				63C6EB112848D26E0028554F /* Frameworks */,
+				63C6EB122848D26E0028554F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63C6EB162848D26E0028554F /* PBXTargetDependency */,
+			);
+			name = "F1 AlmanacTests";
+			productName = "F1 AlmanachTests";
+			productReference = 63C6EB142848D26E0028554F /* F1 AlmanacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		63C6EB1D2848D26E0028554F /* F1 AlmanacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 63C6EB2E2848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 AlmanacUITests" */;
+			buildPhases = (
+				63C6EB1A2848D26E0028554F /* Sources */,
+				63C6EB1B2848D26E0028554F /* Frameworks */,
+				63C6EB1C2848D26E0028554F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				63C6EB202848D26E0028554F /* PBXTargetDependency */,
+			);
+			name = "F1 AlmanacUITests";
+			productName = "F1 AlmanachUITests";
+			productReference = 63C6EB1E2848D26E0028554F /* F1 AlmanacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		63C6EAFC2848D26B0028554F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					63C6EB032848D26B0028554F = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					63C6EB132848D26E0028554F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 63C6EB032848D26B0028554F;
+					};
+					63C6EB1D2848D26E0028554F = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 63C6EB032848D26B0028554F;
+					};
+				};
+			};
+			buildConfigurationList = 63C6EAFF2848D26B0028554F /* Build configuration list for PBXProject "F1 Almanac" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 63C6EAFB2848D26B0028554F;
+			productRefGroup = 63C6EB052848D26B0028554F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				63C6EB032848D26B0028554F /* F1 Almanac */,
+				63C6EB132848D26E0028554F /* F1 AlmanacTests */,
+				63C6EB1D2848D26E0028554F /* F1 AlmanacUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		63C6EB022848D26B0028554F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63C6EB0F2848D26E0028554F /* Preview Assets.xcassets in Resources */,
+				63DDD460284F7E9400B78236 /* Formula1-Bold.otf in Resources */,
+				63DDD45F284F7E9400B78236 /* Formula1-Wide.otf in Resources */,
+				63C6EB0C2848D26E0028554F /* Assets.xcassets in Resources */,
+				63DDD461284F7E9400B78236 /* Formula1-Regular.otf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB122848D26E0028554F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB1C2848D26E0028554F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		63C6EB002848D26B0028554F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63C6EB452848EFC40028554F /* DashboardModel.swift in Sources */,
+				63DDD45A284A4D9100B78236 /* PlaceholderAsyncImage.swift in Sources */,
+				634113B628575169000113C7 /* SeasonViewModel.swift in Sources */,
+				63A2F9EE28534549003D7899 /* Color.swift in Sources */,
+				63C6EB4A2848F5180028554F /* DashboardViewModel.swift in Sources */,
+				63C6EB322848D7700028554F /* ScheduleService.swift in Sources */,
+				63C6EB342848E2C60028554F /* ScheduleResponse.swift in Sources */,
+				63C6EB4D2848F5B70028554F /* CountryFlagService.swift in Sources */,
+				63C6EB0A2848D26B0028554F /* AppView.swift in Sources */,
+				63C6EB3E2848EDB30028554F /* DashboardView.swift in Sources */,
+				63C6EB472848F14F0028554F /* InjectedPropertyWrapper.swift in Sources */,
+				63DDD463284F7EB100B78236 /* Font+custom.swift in Sources */,
+				63DDD465284F806700B78236 /* F1Fonts.swift in Sources */,
+				63DDD457284A418100B78236 /* WikiMainImage.swift in Sources */,
+				63DDD454284A3C2A00B78236 /* ImageService.swift in Sources */,
+				63C6EB362848E9510028554F /* URLSession + asyncSend.swift in Sources */,
+				63C6EB3C2848EADE0028554F /* ScheduleRequestBuilder.swift in Sources */,
+				634113B42857513F000113C7 /* Season.swift in Sources */,
+				63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */,
+				63C6EB4F2848FA570028554F /* Race + dateTime.swift in Sources */,
+				635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */,
+				635004132851E79900C2C082 /* RaceDetails.swift in Sources */,
+				63500418285220A400C2C082 /* FontView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB102848D26E0028554F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63C6EB192848D26E0028554F /* F1_AlmanacTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		63C6EB1A2848D26E0028554F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				63C6EB252848D26E0028554F /* F1_AlmanacUITestsLaunchTests.swift in Sources */,
+				63C6EB232848D26E0028554F /* F1_AlmanacUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		63C6EB162848D26E0028554F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63C6EB032848D26B0028554F /* F1 Almanac */;
+			targetProxy = 63C6EB152848D26E0028554F /* PBXContainerItemProxy */;
+		};
+		63C6EB202848D26E0028554F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 63C6EB032848D26B0028554F /* F1 Almanac */;
+			targetProxy = 63C6EB1F2848D26E0028554F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		63C6EB262848D26E0028554F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		63C6EB272848D26E0028554F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		63C6EB292848D26E0028554F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"F1 Almanac/Preview Content\"";
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "F1-Almanac-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-Almanac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		63C6EB2A2848D26E0028554F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"F1 Almanac/Preview Content\"";
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "F1-Almanac-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-Almanac";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		63C6EB2C2848D26E0028554F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-AlmanacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1 Almanac.app/F1 Almanac";
+			};
+			name = Debug;
+		};
+		63C6EB2D2848D26E0028554F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-AlmanacTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/F1 Almanac.app/F1 Almanac";
+			};
+			name = Release;
+		};
+		63C6EB2F2848D26E0028554F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-AlmanacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "F1 Almanac";
+			};
+			name = Debug;
+		};
+		63C6EB302848D26E0028554F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J8HAMLM3VN;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.peter.varadi.F1-AlmanacUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "F1 Almanac";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		63C6EAFF2848D26B0028554F /* Build configuration list for PBXProject "F1 Almanac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63C6EB262848D26E0028554F /* Debug */,
+				63C6EB272848D26E0028554F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63C6EB282848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 Almanac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63C6EB292848D26E0028554F /* Debug */,
+				63C6EB2A2848D26E0028554F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63C6EB2B2848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 AlmanacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63C6EB2C2848D26E0028554F /* Debug */,
+				63C6EB2D2848D26E0028554F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		63C6EB2E2848D26E0028554F /* Build configuration list for PBXNativeTarget "F1 AlmanacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				63C6EB2F2848D26E0028554F /* Debug */,
+				63C6EB302848D26E0028554F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 63C6EAFC2848D26B0028554F /* Project object */;
+}

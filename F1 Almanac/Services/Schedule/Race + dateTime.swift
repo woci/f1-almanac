@@ -7,7 +7,7 @@
 
 import Foundation
 
-extension Race {
+extension Schedule.Season.Race {
     var dateTime: Date {
         Date.dateTime(forDate: date, forTime: time)
     }

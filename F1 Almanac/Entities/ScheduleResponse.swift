@@ -59,114 +59,115 @@ struct Schedule: Codable {
 
         self.season = try container.decode(Season.self, forKey: .season)
     }
-}
 
-// MARK: - RaceTable
-struct Season: Codable {
-    let year: Int
-    let races: [Race]
+    // MARK: - RaceTable
+    struct Season: Codable {
+        let year: Int
+        let races: [Race]
 
-    enum CodingKeys: String, CodingKey {
-        case year = "season"
-        case races = "Races"
-    }
-
-    init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let year = try container.decode(String.self, forKey: .year)
-        if let year = Int(year) {
-            self.year = year
-        } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Season.CodingKeys.year] as [CodingKey]
-            throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
+        enum CodingKeys: String, CodingKey {
+            case year = "season"
+            case races = "Races"
         }
 
-        self.races = try container.decode([Race].self, forKey: .races)
-    }
-}
+        init(from decoder: Decoder) throws {
+            let container = try decoder.container(keyedBy: CodingKeys.self)
+            let year = try container.decode(String.self, forKey: .year)
+            if let year = Int(year) {
+                self.year = year
+            } else {
+                let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Season.CodingKeys.year] as [CodingKey]
+                throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
+            }
 
-// MARK: - Race
-class Race: Codable, Equatable {
-    static func == (lhs: Race, rhs: Race) -> Bool {
-        lhs.season == rhs.season && lhs.round == rhs.round
-    }
-
-    let season, round: Int
-    let url: String
-    let raceName: String
-    let circuit: Circuit
-    let date, time: String
-    let firstPractice, secondPractice: Session
-    let thirdPractice: Session?
-    let qualifying: Session
-    let sprint: Session?
-    private var _sessions: [Session]?
-    var sessions: [Session] {
-        if let _sessions = _sessions, !_sessions.isEmpty {
-            return _sessions
+            self.races = try container.decode([Race].self, forKey: .races)
         }
 
-        var newFP1 = firstPractice
-        newFP1.name = "Free Practice 1"
-        var newFP2 = secondPractice
-        newFP2.name = "Free Practice 2"
-        var newFP3 = thirdPractice
-        newFP3?.name = "Free Practice 3"
+        // MARK: - Race
+        class Race: Codable, Equatable {
+            static func == (lhs: Race, rhs: Race) -> Bool {
+                lhs.season == rhs.season && lhs.round == rhs.round
+            }
 
-        var newQuali = qualifying
-        newQuali.name = "Qualifying"
-        var newSprint = sprint
-        newSprint?.name = "Sprint Race"
+            let season, round: Int
+            let url: String
+            let raceName: String
+            let circuit: Circuit
+            let date, time: String
+            let firstPractice, secondPractice: Session
+            let thirdPractice: Session?
+            let qualifying: Session
+            let sprint: Session?
+            private var _sessions: [Session]?
+            var sessions: [Session] {
+                if let _sessions = _sessions, !_sessions.isEmpty {
+                    return _sessions
+                }
 
-        let newRace = Session(name: "Race", date: self.date, time: self.time)
+                var newFP1 = firstPractice
+                newFP1.name = "Free Practice 1"
+                var newFP2 = secondPractice
+                newFP2.name = "Free Practice 2"
+                var newFP3 = thirdPractice
+                newFP3?.name = "Free Practice 3"
 
-        let sessions: [Session?] = [newFP1, newFP2, newFP3, newQuali, newSprint, newRace]
+                var newQuali = qualifying
+                newQuali.name = "Qualifying"
+                var newSprint = sprint
+                newSprint?.name = "Sprint Race"
 
-        _sessions = sessions.compactMap{ $0 }.sorted { (lhs: Session, rhs: Session) in
-            lhs.dateTime < rhs.dateTime
+                let newRace = Session(name: "Race", date: self.date, time: self.time)
+
+                let sessions: [Session?] = [newFP1, newFP2, newFP3, newQuali, newSprint, newRace]
+
+                _sessions = sessions.compactMap{ $0 }.sorted { (lhs: Session, rhs: Session) in
+                    lhs.dateTime < rhs.dateTime
+                }
+
+                return _sessions!
+            }
+
+            enum CodingKeys: String, CodingKey {
+                case season, round, url, raceName
+                case circuit = "Circuit"
+                case date, time
+                case firstPractice = "FirstPractice"
+                case secondPractice = "SecondPractice"
+                case thirdPractice = "ThirdPractice"
+                case qualifying = "Qualifying"
+                case sprint = "Sprint"
+            }
+
+            required init(from decoder: Decoder) throws {
+                let container = try decoder.container(keyedBy: CodingKeys.self)
+                let season = try container.decode(String.self, forKey: .season)
+                if let season = Int(season) {
+                    self.season = season
+                } else {
+                    let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Race.CodingKeys.season] as [CodingKey]
+                    throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
+                }
+
+                let round = try container.decode(String.self, forKey: .round)
+                if let round = Int(round) {
+                    self.round = round
+                } else {
+                    let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Race.CodingKeys.round] as [CodingKey]
+                    throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
+                }
+                self.url = try container.decode(String.self, forKey: .url)
+                self.raceName = try container.decode(String.self, forKey: .raceName)
+                self.circuit = try container.decode(Circuit.self, forKey: .circuit)
+                self.date = try container.decode(String.self, forKey: .date)
+                self.time = try container.decode(String.self, forKey: .time)
+                self.firstPractice = try container.decode(Session.self, forKey: .firstPractice)
+                self.secondPractice = try container.decode(Session.self, forKey: .secondPractice)
+                self.thirdPractice = try container.decodeIfPresent(Session.self, forKey: .thirdPractice)
+                self.qualifying = try container.decode(Session.self, forKey: .qualifying)
+                self.sprint = try container.decodeIfPresent(Session.self, forKey: .sprint)
+            }
         }
 
-        return _sessions!
-    }
-
-    enum CodingKeys: String, CodingKey {
-        case season, round, url, raceName
-        case circuit = "Circuit"
-        case date, time
-        case firstPractice = "FirstPractice"
-        case secondPractice = "SecondPractice"
-        case thirdPractice = "ThirdPractice"
-        case qualifying = "Qualifying"
-        case sprint = "Sprint"
-    }
-
-    required init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let season = try container.decode(String.self, forKey: .season)
-        if let season = Int(season) {
-            self.season = season
-        } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Race.CodingKeys.season] as [CodingKey]
-            throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
-        }
-
-        let round = try container.decode(String.self, forKey: .round)
-        if let round = Int(round) {
-            self.round = round
-        } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.season, Race.CodingKeys.round] as [CodingKey]
-            throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
-        }
-        self.url = try container.decode(String.self, forKey: .url)
-        self.raceName = try container.decode(String.self, forKey: .raceName)
-        self.circuit = try container.decode(Circuit.self, forKey: .circuit)
-        self.date = try container.decode(String.self, forKey: .date)
-        self.time = try container.decode(String.self, forKey: .time)
-        self.firstPractice = try container.decode(Session.self, forKey: .firstPractice)
-        self.secondPractice = try container.decode(Session.self, forKey: .secondPractice)
-        self.thirdPractice = try container.decodeIfPresent(Session.self, forKey: .thirdPractice)
-        self.qualifying = try container.decode(Session.self, forKey: .qualifying)
-        self.sprint = try container.decodeIfPresent(Session.self, forKey: .sprint)
     }
 }
 

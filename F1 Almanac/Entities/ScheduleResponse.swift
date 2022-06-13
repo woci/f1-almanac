@@ -84,11 +84,12 @@ struct Schedule: Codable {
         }
 
         // MARK: - Race
-        class Race: Codable, Equatable {
+        class Race: Codable, Equatable, Identifiable {
             static func == (lhs: Race, rhs: Race) -> Bool {
                 lhs.season == rhs.season && lhs.round == rhs.round
             }
 
+            let id: UUID = UUID()
             let season, round: Int
             let url: String
             let raceName: String

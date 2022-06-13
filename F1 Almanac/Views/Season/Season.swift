@@ -15,8 +15,21 @@ struct SeasonView: View {
         ZStack {
             NavigationView {
                 ScrollView {
-                    VStack {
-                        Text($viewModel.year.wrappedValue)
+                    if let races = $viewModel.races.wrappedValue {
+                        LazyVStack {
+                            ForEach ($viewModel.races.wrappedValue!) { race in
+                                NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(race: race))) {
+                                    HStack {
+                                        Text(race.raceName)
+                                        Spacer()
+                                        Text(race.date + race.time)
+                                    }.padding(.leading, 16)
+                                        .padding(.top, 8)
+                                        .padding(.bottom, 8)
+                                        .padding(.trailing, 16)
+                                }
+                            }
+                        }
                     }
                 }.background(Color.background)
                     .navigationBarTitle(Text($viewModel.year.wrappedValue), displayMode: .large)

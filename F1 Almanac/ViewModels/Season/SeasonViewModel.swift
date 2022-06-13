@@ -22,8 +22,14 @@ import Foundation
     func onAppear() {
         showLoader = true
         Task.init(priority: .userInitiated, operation: {
-            let year = await model.loadSeason()
-            self.year = "\(year)"
+            guard let season = await model.loadSeason() else {
+                //TODO Something went wrong
+                return
+            }
+
+            self.races = season.races
+            self.year = "\(season.year)"
+
             showLoader = false
         })
     }

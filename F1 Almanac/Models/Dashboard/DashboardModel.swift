@@ -21,7 +21,7 @@ class DashboardModel {
         self.wikiImageService = wikiImageService
     }
 
-    private func loadCurrentSeasonSchedule() async -> Schedule? {
+    private func loadCurrentSeasonSchedule() async -> Schedule.Season? {
         do {
             return try await scheduleService.currentSeasonSchedule()
         } catch {
@@ -62,7 +62,7 @@ class DashboardModel {
         do {
             let currentSeason = try await scheduleService.currentSeasonSchedule()
 
-            let race = currentSeason.season.nextRace(afterDate: currentDate)
+            let race = currentSeason.nextRace(afterDate: currentDate)
 
             if let race = race {
                 self.nextRace = race
@@ -71,7 +71,7 @@ class DashboardModel {
                 let components = Calendar.current.dateComponents([.year], from: currentDate)
                 if let year = components.year {
                     let nextSeason = try await scheduleService.schedule(ofYear: year)
-                    self.nextRace = nextSeason.season.nextRace(afterDate: currentDate)
+                    self.nextRace = nextSeason.nextRace(afterDate: currentDate)
                     return self.nextRace
                 } else {
                     return Optional.none

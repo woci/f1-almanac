@@ -25,8 +25,7 @@ class SeasonModel {
         }
 
         do {
-            let schedule = try await self.scheduleService.schedule(ofYear: year)
-            self.season = schedule.season
+            self.season = try await self.scheduleService.schedule(ofYear: year)
             return self.season
         } catch {
             return Optional.none

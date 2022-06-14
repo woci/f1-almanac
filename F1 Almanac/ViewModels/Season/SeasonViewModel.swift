@@ -23,7 +23,8 @@ import Foundation
         showLoader = true
         Task.init(priority: .userInitiated, operation: {
             guard let season = await model.loadSeason() else {
-                //TODO Something went wrong
+                races = Optional.none
+                showLoader = false
                 return
             }
 

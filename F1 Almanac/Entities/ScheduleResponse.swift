@@ -8,6 +8,7 @@
 import Foundation
 
 import Foundation
+import SwiftUI
 
 // MARK: - ScheduleResponse
 struct ScheduleResponse: Codable {
@@ -106,18 +107,18 @@ struct Schedule: Codable {
                 }
 
                 var newFP1 = firstPractice
-                newFP1.name = "Free Practice 1"
+                newFP1.type = .fp1
                 var newFP2 = secondPractice
-                newFP2.name = "Free Practice 2"
+                newFP2.type = .fp2
                 var newFP3 = thirdPractice
-                newFP3?.name = "Free Practice 3"
+                newFP3?.type = .fp3
 
                 var newQuali = qualifying
-                newQuali.name = "Qualifying"
+                newQuali.type = .qualify
                 var newSprint = sprint
-                newSprint?.name = "Sprint Race"
+                newSprint?.type = .sprint
 
-                let newRace = Session(name: "Race", date: self.date, time: self.time)
+                let newRace = Session(type: .race, date: self.date, time: self.time)
 
                 let sessions: [Session?] = [newFP1, newFP2, newFP3, newQuali, newSprint, newRace]
 
@@ -193,6 +194,18 @@ struct Location: Codable {
 
 // MARK: - FirstPractice
 struct Session: Codable {
-    var name: String?
+    enum SessionType: String, Codable {
+        case fp1 = "Free Practice 1"
+        case fp2 = "Free Practice 2"
+        case fp3 = "Free Practice 3"
+        case qualify = "Qualifying"
+        case sprint = "Sprint Race"
+        case race = "Race"
+    }
+
+    var type: SessionType?
+    var name: String {
+        type?.rawValue ?? "Session"
+    }
     let date, time: String
 }

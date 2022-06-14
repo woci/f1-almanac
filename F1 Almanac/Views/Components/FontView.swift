@@ -15,6 +15,7 @@ struct FontView: View {
         VStack {
             ForEach(0..<allFonts.count) { index in
                 Text("\(allFonts[index].name)").textStyle(allFonts[index])
+                Spacer().frame(width: .infinity, height: 10, alignment: .center)
             }
         }
     }

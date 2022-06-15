@@ -19,7 +19,10 @@ struct RaceDetailsView: View {
                 let isSessionQualifyOrRace = session.type == .race || session.type == .qualify
                 let navigationEnabled = session.dateTime < Date() && isSessionQualifyOrRace
 
-                NavigationLink(destination: SessionResultView(viewModel: SessionResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: session.name))) {
+                let viewModel = SessionResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: session.name)
+                NavigationLink(destination: SessionResultView(viewModel: viewModel).onAppear{
+                    viewModel.onAppear()
+                }) {
                     RaceDetailsRow(title: session.name, formattedDateTime: formattedDateTime, chevronIsHidden: !navigationEnabled)
                 }.disabled(!navigationEnabled).foregroundColor(.primary)
             }

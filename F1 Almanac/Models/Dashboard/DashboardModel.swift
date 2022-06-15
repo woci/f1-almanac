@@ -12,7 +12,7 @@ class DashboardModel {
     private var scheduleService: ScheduleService
     private var countryFlagService: CountryFlagService
     private var wikiImageService: WikiImageService
-    private(set) var nextRace: Schedule.Season.Race?
+    private(set) var nextRace: Season.RaceSchedule?
     private(set) var nextRaceCircuitImage: URL?
 
     init(scheduleService: ScheduleService = RESTSchedulService(), countryFlagService: CountryFlagService = ConcreteCountryFlagService(), wikiImageService: WikiImageService = WikiImageService()) {
@@ -21,7 +21,7 @@ class DashboardModel {
         self.wikiImageService = wikiImageService
     }
 
-    private func loadCurrentSeasonSchedule() async -> Schedule.Season? {
+    private func loadCurrentSeasonSchedule() async -> Season? {
         do {
             return try await scheduleService.currentSeasonSchedule()
         } catch {
@@ -52,7 +52,7 @@ class DashboardModel {
         return false
     }
 
-    func loadNextRace() async -> Schedule.Season.Race? {
+    func loadNextRace() async -> Season.RaceSchedule? {
         let currentDate = Date()
 
         if isActualRaceUpToDate(atDate: currentDate) {
@@ -94,13 +94,13 @@ class DashboardModel {
 //    }
 //}
 
-extension Schedule.Season {
-    func nextRace(afterDate date: Date) -> Schedule.Season.Race? {
+extension Season {
+    func nextRace(afterDate date: Date) -> Season.RaceSchedule? {
         self.races.first{ $0.dateTime >= date }
     }
 }
 
-extension Schedule.Season.Race {
+extension Season.RaceSchedule {
     var raceWikiName: String? {
         self.url.components(separatedBy: "wiki/").last
     }

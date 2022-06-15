@@ -26,7 +26,7 @@ struct ResponseData<DataType: Codable>: Codable {
         case url, limit, offset, total, xmlns, series
     }
 
-    private struct DynamicCodingKeys: CodingKey {
+    struct DynamicCodingKeys: CodingKey {
         var stringValue: String
         init?(stringValue: String) {
             self.stringValue = stringValue
@@ -51,30 +51,28 @@ struct ResponseData<DataType: Codable>: Codable {
         if let limit = Int(limit) {
             self.limit = limit
         } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.limit] as [CodingKey]
+            let path = [CodingKeys.limit] as [CodingKey]
             throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
         }
 
         if let offset = Int(offset) {
             self.offset = Int(offset)
         } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.offset] as [CodingKey]
+            let path = [CodingKeys.offset] as [CodingKey]
             throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
         }
 
         if let total = Int(total) {
             self.total = Int(total)
         } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.total] as [CodingKey]
+            let path = [CodingKeys.total] as [CodingKey]
             throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode Int but found it failed", underlyingError: nil))
         }
-
-
 
         if let remainingKey = Set(containerCustom.allKeys.map({$0.stringValue})).subtracting(Set(containerSimple.allKeys.map({$0.stringValue}))).first {
             self.table = try containerCustom.decode(DataType.self, forKey: DynamicCodingKeys(stringValue: remainingKey)!)
         } else {
-            let path = [ScheduleResponse.CodingKeys.data, Schedule.CodingKeys.total] as [CodingKey]
+            let path = [CodingKeys.total] as [CodingKey]
             throw DecodingError.valueNotFound(Int.self, DecodingError.Context(codingPath: path, debugDescription: "Expected to decode \(DataType.self) but key not found re", underlyingError: nil))
         }
     }

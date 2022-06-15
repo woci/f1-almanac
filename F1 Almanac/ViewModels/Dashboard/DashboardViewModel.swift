@@ -52,7 +52,7 @@ import Foundation
         }
     }
 
-    private func remainingTime(until race: Schedule.Season.Race) -> String {
+    private func remainingTime(until race: Season.RaceSchedule) -> String {
         let currentDate = Date()
         let date = race.dateTime
 

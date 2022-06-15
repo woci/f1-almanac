@@ -10,14 +10,14 @@ import Foundation
 class SeasonModel {
     var year: Int
     private var scheduleService: ScheduleService
-    private(set) var season: Schedule.Season?
+    private(set) var season: Season?
 
     init(year: Int, scheduleService: ScheduleService = RESTSchedulService()) {
         self.year = year
         self.scheduleService = scheduleService
     }
 
-    func loadSeason(ofYear year: Int? = Optional.none) async -> Schedule.Season? {
+    func loadSeason(ofYear year: Int? = Optional.none) async -> Season? {
         let year = year ?? self.year
 
         if let season = season, season.year == year {

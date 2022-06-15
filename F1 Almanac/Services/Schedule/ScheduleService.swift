@@ -8,24 +8,24 @@
 import Foundation
 
 protocol ScheduleService {
-    func currentSeasonSchedule() async throws -> Schedule.Season
-    func schedule(ofYear year: Int) async throws -> Schedule.Season
+    func currentSeasonSchedule() async throws -> Season
+    func schedule(ofYear year: Int) async throws -> Season
 }
 
 struct RESTSchedulService: ScheduleService {
-    func schedule(ofYear year: Int) async throws -> Schedule.Season {
+    func schedule(ofYear year: Int) async throws -> Season {
         let request = ScheduleRequestBuilder.season(ofYear: year)
 
         let result: ResponseResult = await URLSession.shared.send(request: request)
         switch result {
         case .success(let responseData, _):
-            return try (JSONDecoder.decode(data: responseData) as Response<Schedule.Season>).data.table
+            return try (JSONDecoder.decode(data: responseData) as Response<Season>).data.table
         case .error(let error):
             throw error
         }
     }
 
-    func currentSeasonSchedule() async throws -> Schedule.Season {
+    func currentSeasonSchedule() async throws -> Season {
         let components = Calendar.current.dateComponents([.year], from: Date())
         return try await self.schedule(ofYear: components.year!)
     }

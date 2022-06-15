@@ -11,6 +11,7 @@ import Foundation
     var model: SessionResultModel
 
     @Published var showLoader: Bool = false
+    @Published var raceResult: RaceWeekend<RaceResult>?
     var title: String
     
     init(year: Int, round: Int, title: String) {
@@ -21,15 +22,12 @@ import Foundation
     func onAppear() {
         showLoader = true
         Task.init(priority: .userInitiated, operation: {
-//            guard let season = await model.loadSeason() else {
-//                races = Optional.none
-//                showLoader = false
-//                return
-//            }
-//
-//            self.races = season.races
-//            self.year = "\(season.year)"
-
+            guard let result = await model.loadRaceResult() else {
+                showLoader = false
+                raceResult = Optional.none
+                return
+            }
+            raceResult = result
             showLoader = false
         })
     }

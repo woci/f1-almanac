@@ -11,7 +11,7 @@ import Foundation
     var model: SeasonModel
 
     @Published var showLoader: Bool = false
-    @Published var races: [Schedule.Season.Race]?
+    @Published var races: [Season.RaceSchedule]?
     @Published var year: String
 
     init(year: Int) {

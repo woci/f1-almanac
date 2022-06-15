@@ -9,9 +9,9 @@ import Foundation
 
 @MainActor class RaceDetailsViewModel: ObservableObject {
     var model: RaceDetailsModel = RaceDetailsModel()
-    var race: Schedule.Season.Race
+    var race: Season.RaceSchedule
 
-    init(race: Schedule.Season.Race) {
+    init(race: Season.RaceSchedule) {
         self.race = race
     }
 

@@ -40,37 +40,37 @@ extension TextStyle {
         public static var max: CGFloat = 1.45
     }
 
-    case pageTitle // wide 20
-    case largeSubtitle // wide 18
-    case title // wide 16
-    case subtitle // medium 16
-    case largeBody // regular 16
-    case mediumTitle // medium 15
-    case mediumBody // regular 15
-    case buttonTitle // medium 14
-    case mediumHeader // medium 14
-    case body // regular 14
-    case tabBarTitleSelected // medium 11
-    case tabBarTitleUnselected // regular 11
-    case smallBody // medium 10
+    case pageTitle // wide 19
+    case largeSubtitle // wide 17
+    case title // wide 15
+    case subtitle // medium 15
+    case largeBody // regular 15
+    case mediumTitle // medium 14
+    case mediumBody // regular 14
+    case buttonTitle // medium 13
+    case mediumHeader // medium 13
+    case body // regular 13
+    case tabBarTitleSelected // medium 10
+    case tabBarTitleUnselected // regular 10
+    case smallBody // regular 9
 
     public var pointSize: CGFloat {
         switch self {
-        case .pageTitle: return 20
-        case .largeSubtitle: return 18
-        case .title, .subtitle, .largeBody: return 16
-        case .mediumTitle, .mediumBody: return 15
-        case .mediumHeader, .buttonTitle, .body: return 14
-        case .tabBarTitleSelected, .tabBarTitleUnselected: return 11
-        case .smallBody: return 10
+        case .pageTitle: return 19
+        case .largeSubtitle: return 17
+        case .title, .subtitle, .largeBody: return 15
+        case .mediumTitle, .mediumBody: return 14
+        case .mediumHeader, .buttonTitle, .body: return 13
+        case .tabBarTitleSelected, .tabBarTitleUnselected: return 10
+        case .smallBody: return 9
         }
     }
 
     public var font: UIFont.F1Font {
         switch self {
         case .pageTitle, .largeSubtitle, .title: return .wide
-        case .subtitle, .mediumTitle, .mediumHeader, .buttonTitle, .smallBody, .tabBarTitleSelected: return .medium
-        case .largeBody, .mediumBody, .body, .tabBarTitleUnselected: return .regular
+        case .subtitle, .mediumTitle, .mediumHeader, .buttonTitle, .tabBarTitleSelected: return .medium
+        case .largeBody, .mediumBody, .body, .smallBody, .tabBarTitleUnselected: return .regular
         }
     }
 

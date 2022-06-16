@@ -48,9 +48,10 @@ struct Season: Codable {
 
             self.sessions = [Session]()
 
-            var firstPractice = try container.decode(Session.self, forKey: .firstPractice)
-            firstPractice.type = .fp1
-            sessions.append(firstPractice)
+            if var firstPractice = try container.decodeIfPresent(Session.self, forKey: .firstPractice) {
+                firstPractice.type = .fp1
+                sessions.append(firstPractice)
+            }
 
             var secondPractice = try container.decode(Session.self, forKey: .secondPractice)
             secondPractice.type = .fp2
@@ -156,7 +157,7 @@ struct Session: Codable {
         case sprint = "Sprint Race"
         case race = "Race"
     }
-    var id: UUID = UUID()
+    var id: UUID? = UUID()
     var type: SessionType?
     var name: String {
         type?.rawValue ?? "Session"

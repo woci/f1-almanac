@@ -59,10 +59,15 @@ struct NameFormatter {
     }
 
     private func formateToFirstWordAbbreviated(preFormattedName: String) -> String {
-        let nameComponents = preFormattedName.components(separatedBy: " ")
-        return nameComponents.reduce("\(String(describing: nameComponents.first?.first)).") { partialResult, nextComponent in
-            partialResult + " " + nextComponent
+        var nameComponents = preFormattedName.components(separatedBy: " ")
+        if let firstComponent = nameComponents.first?.first {
+            nameComponents.removeFirst()
+            return nameComponents.reduce("\(firstComponent).") { partialResult, nextComponent in
+                partialResult + " " + nextComponent
+            }
         }
+        
+        return preFormattedName
     }
 
 }

@@ -45,14 +45,28 @@ private extension RaceWeekend where DataType == RaceResult {
         }
 
         return raceresult.results.map( {
+
             RaceResultRowData(position: "\($0.position).",
                               number: "#\($0.number)",
                               points: "+\($0.points)",
                               name: NameFormatter().formattedName(forFirstname: $0.driver.givenName,
                                                                   forLastName: $0.driver.familyName,
-                                                                  style: .firstWordAbbreviated)
+                                                                  style: .firstWordAbbreviated),
+                              time: $0.formattedTime
             )
         })
+    }
+}
+
+private extension RaceResult.Result {
+    var formattedTime: String {
+        if let time = time?.time {
+            return time
+        } else if status.contains("Lap") {
+            return status
+        } else {
+            return "DNF(\(String(status.prefix(3))))"
+        }
     }
 }
 
@@ -62,4 +76,5 @@ struct RaceResultRowData: Identifiable {
     var number: String
     var points: String
     var name: String
+    var time: String
 }

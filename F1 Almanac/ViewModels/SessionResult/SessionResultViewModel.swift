@@ -11,7 +11,7 @@ import Foundation
     var model: SessionResultModel
 
     @Published var showLoader: Bool = false
-    @Published var raceResult: RaceWeekend<RaceResult>?
+    @Published var rows: [RaceResultRowData] = []
     var title: String
     
     init(year: Int, round: Int, title: String) {
@@ -22,13 +22,44 @@ import Foundation
     func onAppear() {
         showLoader = true
         Task.init(priority: .userInitiated, operation: {
-            guard let result = await model.loadRaceResult() else {
-                showLoader = false
-                raceResult = Optional.none
-                return
-            }
-            raceResult = result
-            showLoader = false
+            let result = await model.loadRaceResult()
+            presentRaceResult(raceResult: result)
         })
     }
+
+    func presentRaceResult(raceResult: RaceWeekend<RaceResult>?) {
+        guard let raceResult = raceResult else {
+            showLoader = false
+            return
+        }
+        self.rows.removeAll()
+        self.rows.append(contentsOf: raceResult.convert())
+        showLoader = false
+    }
+}
+
+private extension RaceWeekend where DataType == RaceResult {
+    func convert() -> [RaceResultRowData] {
+        guard let raceresult = table.first else {
+            return []
+        }
+
+        return raceresult.results.map( {
+            RaceResultRowData(position: "\($0.position).",
+                              number: "#\($0.number)",
+                              points: "+\($0.points)",
+                              name: NameFormatter().formattedName(forFirstname: $0.driver.givenName,
+                                                                  forLastName: $0.driver.familyName,
+                                                                  style: .firstWordAbbreviated)
+            )
+        })
+    }
+}
+
+struct RaceResultRowData: Identifiable {
+    var id: UUID = UUID()
+    var position: String
+    var number: String
+    var points: String
+    var name: String
 }

@@ -26,6 +26,7 @@
 		635004132851E79900C2C082 /* RaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* RaceDetailsView.swift */; };
 		635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */; };
 		63500418285220A400C2C082 /* FontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63500417285220A400C2C082 /* FontView.swift */; };
+		63A27859285B2CC9000944AC /* SessionResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A27858285B2CC9000944AC /* SessionResultRow.swift */; };
 		63A2F9EE28534549003D7899 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2F9ED28534549003D7899 /* Color.swift */; };
 		63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */; };
 		63C6EB0A2848D26B0028554F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB092848D26B0028554F /* AppView.swift */; };
@@ -92,6 +93,7 @@
 		635004122851E79900C2C082 /* RaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsView.swift; sourceTree = "<group>"; };
 		635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewModel.swift; sourceTree = "<group>"; };
 		63500417285220A400C2C082 /* FontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontView.swift; sourceTree = "<group>"; };
+		63A27858285B2CC9000944AC /* SessionResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultRow.swift; sourceTree = "<group>"; };
 		63A2F9ED28534549003D7899 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		63C6EB042848D26B0028554F /* F1 Almanac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "F1 Almanac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacApp.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				630106FA2858AC0000B91450 /* SessionResultView.swift */,
+				63A27858285B2CC9000944AC /* SessionResultRow.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -580,6 +583,7 @@
 				63C6EB322848D7700028554F /* ScheduleService.swift in Sources */,
 				63D7E8BF2857A278006FBAE3 /* ErrorView.swift in Sources */,
 				63C6EB342848E2C60028554F /* Schedule.swift in Sources */,
+				63A27859285B2CC9000944AC /* SessionResultRow.swift in Sources */,
 				6301070D285A08EB00B91450 /* RaceResult.swift in Sources */,
 				63C6EB4D2848F5B70028554F /* CountryFlagService.swift in Sources */,
 				63C6EB0A2848D26B0028554F /* AppView.swift in Sources */,

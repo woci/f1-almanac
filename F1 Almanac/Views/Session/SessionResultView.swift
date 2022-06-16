@@ -15,21 +15,11 @@ struct SessionResultView: View {
         GeometryReader { geometry in
             ZStack {
                 ScrollView {
-                    if $viewModel.raceResult.wrappedValue != Optional.none {
-                        let results = $viewModel.raceResult.wrappedValue!.table.first!.results
+                    if !$viewModel.rows.wrappedValue.isEmpty {
+                        let results = $viewModel.rows.wrappedValue
                         LazyVStack {
                             ForEach (results) { result in
-                                VStack {
-                                    Divider().background(Color.separator)
-                                    HStack(alignment: .center, spacing: 8) {
-                                        Text("\(result.position).").textStyle(.mediumTitle).padding(.leading, 16).frame(width: 46, alignment: .leading)
-                                        Text("#\(result.number)").textStyle(.body).frame(width: 45, alignment: .leading)
-                                        Text("+\(result.points)").textStyle(.body).frame(width: 45, alignment: .leading)
-                                        Text(NameFormatter().formattedName(forFirstname: result.driver.givenName, forLastName: result.driver.familyName)).textStyle(.body)
-                                        Spacer()
-                                        Image(systemName: "chevron.right").padding(.trailing, 16)
-                                    }.padding(.top, 8).padding(.bottom, 8)
-                                }
+                                SessionResultRow(result: result)
                             }
                         }
                     } else {

@@ -33,11 +33,7 @@ struct Season: Codable {
 
     // MARK: - Race
     class RaceSchedule: Race {
-        let firstPractice, secondPractice: Session
-        let thirdPractice: Session?
-        let qualifying: Session
-        let sprint: Session?
-        private var _sessions: [Session]?
+        var sessions: [Session]
 
         enum CodingKeys: String, CodingKey {
             case firstPractice = "FirstPractice"
@@ -49,13 +45,40 @@ struct Season: Codable {
 
         required init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
-            self.firstPractice = try container.decode(Session.self, forKey: .firstPractice)
-            self.secondPractice = try container.decode(Session.self, forKey: .secondPractice)
-            self.thirdPractice = try container.decodeIfPresent(Session.self, forKey: .thirdPractice)
-            self.qualifying = try container.decode(Session.self, forKey: .qualifying)
-            self.sprint = try container.decodeIfPresent(Session.self, forKey: .sprint)
+
+            self.sessions = [Session]()
+
+            var firstPractice = try container.decode(Session.self, forKey: .firstPractice)
+            firstPractice.type = .fp1
+            sessions.append(firstPractice)
+
+            var secondPractice = try container.decode(Session.self, forKey: .secondPractice)
+            secondPractice.type = .fp2
+            sessions.append(secondPractice)
+
+            if var thirdPractice = try container.decodeIfPresent(Session.self, forKey: .thirdPractice) {
+                thirdPractice.type = .fp3
+                sessions.append(thirdPractice)
+            }
+
+            var  qualifying = try container.decode(Session.self, forKey: .qualifying)
+            qualifying.type = .qualify
+            sessions.append(qualifying)
+
+            if var sprint = try container.decodeIfPresent(Session.self, forKey: .sprint) {
+                sprint.type = .sprint
+                sessions.append(sprint)
+            }
+
 
             try super.init(from: decoder)
+
+            let race = Session(type: .race, date: date, time: time)
+            sessions.append(race)
+
+            sessions.sort { (lhs: Session, rhs: Session) in
+                lhs.dateTime < rhs.dateTime
+            }
         }
     }
 }
@@ -103,36 +126,6 @@ class Race: Codable, Equatable, Identifiable {
     }
 }
 
-extension Season.RaceSchedule {
-    var sessions: [Session] {
-        if let _sessions = _sessions, !_sessions.isEmpty {
-            return _sessions
-        }
-
-        var newFP1 = firstPractice
-        newFP1.type = .fp1
-        var newFP2 = secondPractice
-        newFP2.type = .fp2
-        var newFP3 = thirdPractice
-        newFP3?.type = .fp3
-
-        var newQuali = qualifying
-        newQuali.type = .qualify
-        var newSprint = sprint
-        newSprint?.type = .sprint
-
-        let newRace = Session(type: .race, date: self.date, time: self.time)
-
-        let sessions: [Session?] = [newFP1, newFP2, newFP3, newQuali, newSprint, newRace]
-
-        _sessions = sessions.compactMap{ $0 }.sorted { (lhs: Session, rhs: Session) in
-            lhs.dateTime < rhs.dateTime
-        }
-
-        return _sessions!
-    }
-}
-
 
 // MARK: - Circuit
 struct Circuit: Codable {
@@ -163,7 +156,7 @@ struct Session: Codable {
         case sprint = "Sprint Race"
         case race = "Race"
     }
-
+    var id: UUID = UUID()
     var type: SessionType?
     var name: String {
         type?.rawValue ?? "Session"

@@ -11,20 +11,14 @@ import SwiftUI
 struct RaceDetailsView: View {
     @StateObject var viewModel: RaceDetailsViewModel
     var body: some View {
-        VStack {
-            ForEach(0..<viewModel.race.sessions.count) { index in
-                let session = viewModel.race.sessions[index]
-                let formattedDateTime = CustomDateFormatter().formattedDate(for: session.dateTime, dateStyle: .medium, timeStyle: .medium )
-
-                let isSessionQualifyOrRace = session.type == .race || session.type == .qualify
-                let navigationEnabled = session.dateTime < Date() && isSessionQualifyOrRace
-
-                let viewModel = SessionResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: session.name)
+        LazyVStack {
+            ForEach(viewModel.rows) { row in
+                let viewModel = SessionResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: row.name)
                 NavigationLink(destination: SessionResultView(viewModel: viewModel).onAppear{
                     viewModel.onAppear()
                 }) {
-                    RaceDetailsRow(title: session.name, formattedDateTime: formattedDateTime, chevronIsHidden: !navigationEnabled)
-                }.disabled(!navigationEnabled).foregroundColor(.primary)
+                    RaceDetailsRow(title: row.name, formattedDateTime: row.dateTime, chevronIsHidden: !row.navigationEnabled)
+                }.disabled(!row.navigationEnabled).foregroundColor(.primary)
             }
             Spacer()
         }.navigationTitle(viewModel.race.raceName)

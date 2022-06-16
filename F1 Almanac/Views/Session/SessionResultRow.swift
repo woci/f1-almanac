@@ -17,9 +17,9 @@ struct SessionResultRow: View {
             Divider().background(Color.separator)
             HStack(alignment: .center, spacing: 4) {
                 Text(result.position).textStyle(.mediumHeader).padding(.leading, 17).frame(width: 42, alignment: .bottomLeading).foregroundColor(.primary)
-                Text(result.number).textStyle(.smallBody).frame(width: 33, alignment: .bottomLeading).foregroundColor(.secondary)
-                Text(result.points).textStyle(.smallBody).frame(width: 20, alignment: .bottomLeading).foregroundColor(Color(UIColor.tertiaryLabel))
+                Text(result.points).textStyle(.smallBody).frame(width: 20, alignment: .bottomLeading).foregroundColor(.secondary)
                 Text(result.name).textStyle(.body)
+                Text(result.number).textStyle(.smallBody).frame(width: 33, alignment: .bottomLeading).foregroundColor(Color(UIColor.tertiaryLabel))
                 Spacer()
                 Text(result.time).textStyle(.smallBody).frame(width: 75, alignment: .leading)
                 Image(systemName: "chevron.right").padding(.trailing, 16)

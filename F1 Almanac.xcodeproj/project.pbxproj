@@ -7,9 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		630106FB2858AC0000B91450 /* SessionResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630106FA2858AC0000B91450 /* SessionResultView.swift */; };
-		630106FE2858AC3A00B91450 /* SessionResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630106FD2858AC3A00B91450 /* SessionResultViewModel.swift */; };
-		630107012858AC8900B91450 /* SessionResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107002858AC8900B91450 /* SessionResultModel.swift */; };
+		630106FB2858AC0000B91450 /* RaceResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630106FA2858AC0000B91450 /* RaceResultView.swift */; };
+		630106FE2858AC3A00B91450 /* RaceResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630106FD2858AC3A00B91450 /* RaceResultViewModel.swift */; };
+		630107012858AC8900B91450 /* RaceResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107002858AC8900B91450 /* RaceResultModel.swift */; };
 		630107032858AE8E00B91450 /* SessionResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107022858AE8E00B91450 /* SessionResultService.swift */; };
 		630107052858AED700B91450 /* SessionResultRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107042858AED700B91450 /* SessionResultRequestBuilder.swift */; };
 		630107072858B47600B91450 /* RaceDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107062858B47600B91450 /* RaceDetailsRow.swift */; };
@@ -26,8 +26,9 @@
 		635004132851E79900C2C082 /* RaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* RaceDetailsView.swift */; };
 		635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */; };
 		63500418285220A400C2C082 /* FontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63500417285220A400C2C082 /* FontView.swift */; };
-		63A27859285B2CC9000944AC /* SessionResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A27858285B2CC9000944AC /* SessionResultRow.swift */; };
+		63A27859285B2CC9000944AC /* RaceResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A27858285B2CC9000944AC /* RaceResultRow.swift */; };
 		63A2F9EE28534549003D7899 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A2F9ED28534549003D7899 /* Color.swift */; };
+		63C2D885285C9D1B0062A60F /* RaceResultHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C2D884285C9D1B0062A60F /* RaceResultHeader.swift */; };
 		63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */; };
 		63C6EB0A2848D26B0028554F /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C6EB092848D26B0028554F /* AppView.swift */; };
 		63C6EB0C2848D26E0028554F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C6EB0B2848D26E0028554F /* Assets.xcassets */; };
@@ -74,9 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		630106FA2858AC0000B91450 /* SessionResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultView.swift; sourceTree = "<group>"; };
-		630106FD2858AC3A00B91450 /* SessionResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultViewModel.swift; sourceTree = "<group>"; };
-		630107002858AC8900B91450 /* SessionResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultModel.swift; sourceTree = "<group>"; };
+		630106FA2858AC0000B91450 /* RaceResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultView.swift; sourceTree = "<group>"; };
+		630106FD2858AC3A00B91450 /* RaceResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultViewModel.swift; sourceTree = "<group>"; };
+		630107002858AC8900B91450 /* RaceResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultModel.swift; sourceTree = "<group>"; };
 		630107022858AE8E00B91450 /* SessionResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultService.swift; sourceTree = "<group>"; };
 		630107042858AED700B91450 /* SessionResultRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultRequestBuilder.swift; sourceTree = "<group>"; };
 		630107062858B47600B91450 /* RaceDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsRow.swift; sourceTree = "<group>"; };
@@ -93,8 +94,9 @@
 		635004122851E79900C2C082 /* RaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsView.swift; sourceTree = "<group>"; };
 		635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewModel.swift; sourceTree = "<group>"; };
 		63500417285220A400C2C082 /* FontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontView.swift; sourceTree = "<group>"; };
-		63A27858285B2CC9000944AC /* SessionResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultRow.swift; sourceTree = "<group>"; };
+		63A27858285B2CC9000944AC /* RaceResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultRow.swift; sourceTree = "<group>"; };
 		63A2F9ED28534549003D7899 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		63C2D884285C9D1B0062A60F /* RaceResultHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultHeader.swift; sourceTree = "<group>"; };
 		63C6EB042848D26B0028554F /* F1 Almanac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "F1 Almanac.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C6EB072848D26B0028554F /* F1_AlmanacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = F1_AlmanacApp.swift; sourceTree = "<group>"; };
 		63C6EB092848D26B0028554F /* AppView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppView.swift; sourceTree = "<group>"; };
@@ -155,8 +157,9 @@
 		630106F92858ABEF00B91450 /* Session */ = {
 			isa = PBXGroup;
 			children = (
-				630106FA2858AC0000B91450 /* SessionResultView.swift */,
-				63A27858285B2CC9000944AC /* SessionResultRow.swift */,
+				630106FA2858AC0000B91450 /* RaceResultView.swift */,
+				63A27858285B2CC9000944AC /* RaceResultRow.swift */,
+				63C2D884285C9D1B0062A60F /* RaceResultHeader.swift */,
 			);
 			path = Session;
 			sourceTree = "<group>";
@@ -164,7 +167,7 @@
 		630106FC2858AC2B00B91450 /* SessionResult */ = {
 			isa = PBXGroup;
 			children = (
-				630106FD2858AC3A00B91450 /* SessionResultViewModel.swift */,
+				630106FD2858AC3A00B91450 /* RaceResultViewModel.swift */,
 			);
 			path = SessionResult;
 			sourceTree = "<group>";
@@ -172,7 +175,7 @@
 		630106FF2858AC7900B91450 /* SessionResult */ = {
 			isa = PBXGroup;
 			children = (
-				630107002858AC8900B91450 /* SessionResultModel.swift */,
+				630107002858AC8900B91450 /* RaceResultModel.swift */,
 			);
 			path = SessionResult;
 			sourceTree = "<group>";
@@ -579,15 +582,16 @@
 				634113B628575169000113C7 /* SeasonViewModel.swift in Sources */,
 				63A2F9EE28534549003D7899 /* Color.swift in Sources */,
 				631BF9B328577F4500A2CC5B /* DateFormatter.swift in Sources */,
+				63C2D885285C9D1B0062A60F /* RaceResultHeader.swift in Sources */,
 				63C6EB4A2848F5180028554F /* DashboardViewModel.swift in Sources */,
 				63C6EB322848D7700028554F /* ScheduleService.swift in Sources */,
 				63D7E8BF2857A278006FBAE3 /* ErrorView.swift in Sources */,
 				63C6EB342848E2C60028554F /* Schedule.swift in Sources */,
-				63A27859285B2CC9000944AC /* SessionResultRow.swift in Sources */,
+				63A27859285B2CC9000944AC /* RaceResultRow.swift in Sources */,
 				6301070D285A08EB00B91450 /* RaceResult.swift in Sources */,
 				63C6EB4D2848F5B70028554F /* CountryFlagService.swift in Sources */,
 				63C6EB0A2848D26B0028554F /* AppView.swift in Sources */,
-				630106FE2858AC3A00B91450 /* SessionResultViewModel.swift in Sources */,
+				630106FE2858AC3A00B91450 /* RaceResultViewModel.swift in Sources */,
 				63C6EB3E2848EDB30028554F /* DashboardView.swift in Sources */,
 				630107052858AED700B91450 /* SessionResultRequestBuilder.swift in Sources */,
 				630107092858C8E900B91450 /* QualifyResult.swift in Sources */,
@@ -602,9 +606,9 @@
 				63DDD454284A3C2A00B78236 /* ImageService.swift in Sources */,
 				63C6EB362848E9510028554F /* URLSession + asyncSend.swift in Sources */,
 				63C6EB3C2848EADE0028554F /* ScheduleRequestBuilder.swift in Sources */,
-				630107012858AC8900B91450 /* SessionResultModel.swift in Sources */,
+				630107012858AC8900B91450 /* RaceResultModel.swift in Sources */,
 				634113B42857513F000113C7 /* SeasonView.swift in Sources */,
-				630106FB2858AC0000B91450 /* SessionResultView.swift in Sources */,
+				630106FB2858AC0000B91450 /* RaceResultView.swift in Sources */,
 				63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */,
 				634113BF28576E8D000113C7 /* RaceDetailsModel.swift in Sources */,
 				63C6EB4F2848FA570028554F /* Race + dateTime.swift in Sources */,

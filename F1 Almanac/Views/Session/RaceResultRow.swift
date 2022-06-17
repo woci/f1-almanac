@@ -8,8 +8,7 @@
 import Foundation
 import SwiftUI
 
-
-struct SessionResultRow: View {
+struct RaceResultRow: View {
     @State var result: RaceResultRowData
 
     var body: some View {
@@ -31,9 +30,17 @@ struct SessionResultRow: View {
 struct SessionResultRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack(spacing: 0) {
-            SessionResultRow(result: RaceResultRowData(position: "1.", number: "#44", points: "+25", name: "L. Hamilton", time: "1:24:19.293"))
-            SessionResultRow(result: RaceResultRowData(position: "2.", number: "#1", points: "+18", name: "M. Verstappen", time: "+ 3.04s"))
-            SessionResultRow(result: RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "M. Schumacher", time: "DNF(Wit)"))
-        }.previewLayout(PreviewLayout.fixed(width: 375, height: 153)).loadCustomFonts()
+            ForEach(RaceResultRowData.testData) { row in
+                RaceResultRow(result: row)
+            }
+        }.previewLayout(PreviewLayout.fixed(width: 375, height: 124)).loadCustomFonts()
     }
+}
+
+extension RaceResultRowData {
+    static var testData: [RaceResultRowData] = [
+        RaceResultRowData(position: "1.", number: "#44", points: "+25", name: "L. Hamilton", time: "1:24:19.293"),
+        RaceResultRowData(position: "2.", number: "#1", points: "+18", name: "M. Verstappen", time: "+ 3.04s"),
+        RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "M. Schumacher", time: "DNF(Wit)")
+    ]
 }

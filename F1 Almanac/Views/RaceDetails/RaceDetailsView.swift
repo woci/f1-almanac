@@ -13,8 +13,8 @@ struct RaceDetailsView: View {
     var body: some View {
         LazyVStack {
             ForEach(viewModel.rows) { row in
-                let viewModel = SessionResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: row.name)
-                NavigationLink(destination: SessionResultView(viewModel: viewModel).onAppear{
+                let viewModel = RaceResultViewModel(year: viewModel.race.season, round: viewModel.race.round, title: row.name)
+                NavigationLink(destination: RaceResultView(viewModel: viewModel).onAppear{
                     viewModel.onAppear()
                 }) {
                     RaceDetailsRow(title: row.name, formattedDateTime: row.dateTime, chevronIsHidden: !row.navigationEnabled)
@@ -22,6 +22,7 @@ struct RaceDetailsView: View {
             }
             Spacer()
         }.navigationTitle(viewModel.race.raceName)
+        Spacer()
     }
 }
 

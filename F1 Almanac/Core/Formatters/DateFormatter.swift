@@ -21,6 +21,13 @@ struct CustomDateFormatter {
         return formatter
     }()
 
+    private static var numberFormatter: NumberFormatter = {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+
+        return numberFormatter
+    }()
+
     private func unsafeFormattedDate(for date: Date, dateStyle: DateFormatter.Style = .full, timeStyle: DateFormatter.Style = .none) -> String {
         if CustomDateFormatter.formatter.locale != Locale.current {
             CustomDateFormatter.formatter.locale = Locale.current
@@ -66,6 +73,26 @@ struct CustomDateFormatter {
     func dateTime(forDate date: String, forTime time: String) -> Date {
         CustomDateFormatter.lock.sync { () -> Date in
             return unsafeDateTime(forDate: date, forTime: time)
+        }
+    }
+
+    func time(forTime timeString: String) -> TimeInterval {
+        CustomDateFormatter.lock.sync { () -> TimeInterval in
+            let timeMultipiler = [1.0,60.0,3600.0] //seconds for unit
+            var time = 0.0
+            var timeComponents = timeString.components(separatedBy: ":")
+            if timeComponents.count > timeMultipiler.count{
+                return 0
+            }
+
+            timeComponents.reverse()
+
+            for index in 0..<timeComponents.count{ guard let timeComponent = Double(timeComponents[index]) else { return 0}
+                time += timeComponent * timeMultipiler[index] }
+
+            guard let number =  CustomDateFormatter.numberFormatter.string(from: NSNumber(value: time)) else { fatalError("Can not get number") }
+
+            return TimeInterval(number)!
         }
     }
 }

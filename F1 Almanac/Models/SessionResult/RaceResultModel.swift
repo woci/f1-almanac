@@ -7,7 +7,7 @@
 
 import Foundation
 
-class SessionResultModel {
+class RaceResultModel {
     private var year: Int
     private var round: Int
     private var resultService: SessionResultService

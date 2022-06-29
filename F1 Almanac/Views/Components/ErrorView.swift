@@ -16,7 +16,7 @@ struct ErrorView: View {
 
     var body: some View {
         VStack(alignment: .center, spacing: 0) {
-            Spacer().padding(.top, 16)
+            Spacer().frame(height: 16)
             Text($title.wrappedValue).textStyle(.mediumTitle).padding()
             Text($message.wrappedValue).textStyle(.body).padding() .multilineTextAlignment(.center)
             if let buttonTitle = $buttonTitle.wrappedValue, let buttonAction = buttonAction {

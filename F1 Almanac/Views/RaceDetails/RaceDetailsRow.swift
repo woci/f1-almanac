@@ -14,15 +14,17 @@ struct RaceDetailsRow: View {
     @State var chevronIsHidden: Bool = true
     
     var body: some View {
-        Divider().background(Color.separator)
-        HStack {
-            Text(title).textStyle(.mediumTitle)
-            Spacer()
-            Text(formattedDateTime)
-                .textStyle(.mediumBody)
-                .frame(minWidth: 50, maxWidth: 150)
-            Image(systemName: "chevron.right").isHidden(chevronIsHidden)
-        }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+        VStack{
+            Divider().background(Color.separator)
+            HStack {
+                Text(title).textStyle(.mediumTitle)
+                Spacer()
+                Text(formattedDateTime)
+                    .textStyle(.mediumBody)
+                    .frame(minWidth: 50, maxWidth: 150)
+                Image(systemName: "chevron.right").isHidden(chevronIsHidden)
+            }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
+        }
     }
 }
 

@@ -17,7 +17,7 @@ struct DashboardView: View {
                 ScrollView {
                     VStack {
                         if let nextRace = viewModel.model.nextRace {
-                            NavigationLink(destination:RaceDetailsView(viewModel: RaceDetailsViewModel(race: nextRace))) {
+                            NavigationLink(destination:RaceDetailsView(viewModel: RaceDetailsViewModel(title: nextRace.raceName, rows: nextRace.sessions.convert(), season: nextRace.season, round: nextRace.round))) {
                                 PlaceholderableAsyncImage(url: $viewModel.nextRaceImage.wrappedValue)
                                     .background(Color.separator)
                                     .blur(radius: 1.0)
@@ -29,6 +29,21 @@ struct DashboardView: View {
                 }.background(Color.background).navigationBarTitle(Text($viewModel.nextRaceName.wrappedValue), displayMode: .large)
             }
             FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
+        }
+    }
+}
+
+extension Array where Element == Session {
+    func convert() -> [RaceDetailsRowData] {
+        self.map {
+            let isSessionQualifyOrRace = $0.type == .race || $0.type == .qualify
+            let navigationEnabled = $0.dateTime < Date() && isSessionQualifyOrRace
+            return RaceDetailsRowData(name: $0.name,
+                                      dateTime: CustomDateFormatter().formattedDate(for: $0.dateTime,
+                                                                                dateStyle: .medium,
+                                                                                timeStyle: .medium),
+                                      navigationEnabled: navigationEnabled,
+                                      type: $0.type)
         }
     }
 }

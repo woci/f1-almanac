@@ -9,26 +9,16 @@ import Foundation
 
 @MainActor class RaceDetailsViewModel: ObservableObject {
     var model: RaceDetailsModel = RaceDetailsModel()
-    var race: Season.RaceSchedule
     var rows: [RaceDetailsRowData] = []
+    var title: String
+    var season: Int
+    var round: Int
 
-    init(race: Season.RaceSchedule) {
-        self.race = race
-        rows.append(contentsOf: race.sessions.convert())
-    }
-}
-
-private extension Array where Element == Session {
-    func convert() -> [RaceDetailsRowData] {
-        self.map {
-            let isSessionQualifyOrRace = $0.type == .race || $0.type == .qualify
-            let navigationEnabled = $0.dateTime < Date() && isSessionQualifyOrRace
-            return RaceDetailsRowData(name: $0.name,
-                               dateTime: CustomDateFormatter().formattedDate(for: $0.dateTime,
-                                                                                dateStyle: .medium,
-                                                                                timeStyle: .medium),
-                               navigationEnabled: navigationEnabled)
-        }
+    init(title: String, rows: [RaceDetailsRowData], season: Int, round: Int) {
+        self.title = title
+        self.season = season
+        self.round = round
+        self.rows.append(contentsOf: rows)
     }
 }
 
@@ -37,4 +27,5 @@ struct RaceDetailsRowData: Identifiable {
     var name: String
     var dateTime: String
     var navigationEnabled: Bool
+    var type: Session.SessionType?
 }

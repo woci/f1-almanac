@@ -30,7 +30,7 @@ struct Season: Codable {
 
         self.races = try container.decode([RaceSchedule].self, forKey: .races)
     }
-
+    
     // MARK: - Race
     class RaceSchedule: Race {
         var sessions: [Session]

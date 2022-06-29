@@ -19,7 +19,7 @@ struct SeasonView: View {
                         if $viewModel.races.wrappedValue != Optional.none {
                             LazyVStack {
                                 ForEach ($viewModel.races.wrappedValue!) { race in
-                                    NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(race: race))) {
+                                    NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(title: race.raceName, rows: race.sessions.convert(), season: race.season, round: race.round))) {
                                         HStack {
                                             Text(race.raceName)
                                             Spacer()

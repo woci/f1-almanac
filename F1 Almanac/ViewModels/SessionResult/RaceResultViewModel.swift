@@ -110,7 +110,7 @@ private extension RaceResult.Result {
         } else if status.contains("Lap") {
             return status
         } else {
-            return "DNF(\(String(status)))" //.prefix(3)
+            return "DNF(\(String(status.prefix(3))))"
         }
     }
 }

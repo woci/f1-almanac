@@ -18,6 +18,7 @@ struct RaceResultView: View {
                     let results = $viewModel.rows.wrappedValue
                     VStack(alignment: .leading, spacing: 0) {
                         RaceResultHeader(laps: $viewModel.laps.wrappedValue, fastestLapDriver: $viewModel.fastestLapDriver.wrappedValue, fastestLap: $viewModel.fastestLap.wrappedValue)
+                        RaceResultColumnHeader()
                         LazyVStack {
                             ForEach (results) { result in
                                 RaceResultRow(result: result)
@@ -27,7 +28,7 @@ struct RaceResultView: View {
                 } else {
                     ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
                         viewModel.onAppear()
-                    }.frame(width: .infinity)
+                    }.frame(width: UIScreen.main.bounds.width)
                 }
             }.background(Color.background)
                 .navigationBarTitle(Text(viewModel.title), displayMode: .large)
@@ -43,6 +44,5 @@ struct SessionResultView_Previews: PreviewProvider {
         return NavigationView {
             RaceResultView(viewModel: viewModel)
         }.loadCustomFonts()
-            .previewDevice("iPhone SE (2nd generation)")
     }
 }

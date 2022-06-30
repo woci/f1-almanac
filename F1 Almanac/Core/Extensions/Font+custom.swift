@@ -28,8 +28,8 @@ extension TextStyle {
     public var swiftUIfont: Font {
         switch self {
         case .pageTitle, .largeSubtitle, .title, .tabBarTitleSelected: return Font.custom(UIFont.F1Font.wide.fontName(), size: pointSize)
-        case .subtitle, .mediumTitle, .mediumHeader, .buttonTitle, .smallBody, .tabBarTitleUnselected: return Font.custom(UIFont.F1Font.medium.fontName(), size: pointSize)
-        case .largeBody, .mediumBody, .body: return Font.custom(UIFont.F1Font.regular.fontName(), size: pointSize)
+        case .subtitle, .mediumTitle, .mediumHeader, .buttonTitle: return Font.custom(UIFont.F1Font.medium.fontName(), size: pointSize)
+        case .largeBody, .mediumBody, .body, .smallBody, .tinyBody, .tabBarTitleUnselected: return Font.custom(UIFont.F1Font.regular.fontName(), size: pointSize)
         }
     }
 }
@@ -50,9 +50,10 @@ extension TextStyle {
     case buttonTitle // medium 13
     case mediumHeader // medium 13
     case body // regular 13
+    case smallBody // regular 11
     case tabBarTitleSelected // medium 10
     case tabBarTitleUnselected // regular 10
-    case smallBody // regular 9
+    case tinyBody // regular 9
 
     public var pointSize: CGFloat {
         switch self {
@@ -61,8 +62,9 @@ extension TextStyle {
         case .title, .subtitle, .largeBody: return 15
         case .mediumTitle, .mediumBody: return 14
         case .mediumHeader, .buttonTitle, .body: return 13
+        case .smallBody: return 11
         case .tabBarTitleSelected, .tabBarTitleUnselected: return 10
-        case .smallBody: return 9
+        case .tinyBody: return 9
         }
     }
 
@@ -70,16 +72,16 @@ extension TextStyle {
         switch self {
         case .pageTitle, .largeSubtitle, .title: return .wide
         case .subtitle, .mediumTitle, .mediumHeader, .buttonTitle, .tabBarTitleSelected: return .medium
-        case .largeBody, .mediumBody, .body, .smallBody, .tabBarTitleUnselected: return .regular
+        case .largeBody, .mediumBody, .body, .tinyBody, .tabBarTitleUnselected, .smallBody: return .regular
         }
     }
 
     public var characterSpace: CGFloat {
         switch self {
         case .pageTitle, .largeSubtitle, .mediumTitle: return 1.0
-        case .title, .subtitle, .largeBody, .mediumBody, .mediumHeader, .body: return 0.3
+        case .title, .subtitle, .largeBody, .mediumBody, .mediumHeader, .body, .smallBody: return 0.3
         case .buttonTitle: return 2.0
-        case .smallBody, .tabBarTitleSelected, .tabBarTitleUnselected: return 0.9
+        case .tinyBody, .tabBarTitleSelected, .tabBarTitleUnselected: return 0.9
         }
     }
 
@@ -87,13 +89,14 @@ extension TextStyle {
         var lineHeightRatio: CGFloat = LineHeightRatio.min
 
         switch self {
+        case .buttonTitle: lineHeightRatio = 1
         case .pageTitle: lineHeightRatio = LineHeightRatio.min
         case .largeSubtitle: lineHeightRatio = 1.26
         case .title, .subtitle, .largeBody:  lineHeightRatio = 1.31
         case .mediumTitle, .mediumBody: lineHeightRatio = 1.34
         case .mediumHeader, .body: lineHeightRatio = 1.367
-        case .buttonTitle: lineHeightRatio = 1
-        case .smallBody, .tabBarTitleSelected, .tabBarTitleUnselected: lineHeightRatio = LineHeightRatio.max
+        case .smallBody: lineHeightRatio = 1.4
+        case .tinyBody, .tabBarTitleSelected, .tabBarTitleUnselected: lineHeightRatio = LineHeightRatio.max
         }
 
         return self.pointSize * lineHeightRatio

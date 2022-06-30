@@ -16,17 +16,11 @@ struct SeasonView: View {
             ZStack {
                 NavigationView {
                     ScrollView {
-                        if $viewModel.races.wrappedValue != Optional.none {
+                        if !$viewModel.rows.wrappedValue.isEmpty {
                             LazyVStack {
-                                ForEach ($viewModel.races.wrappedValue!) { race in
-                                    NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(title: race.raceName, rows: race.sessions.convert(), season: race.season, round: race.round))) {
-                                        HStack {
-                                            Text(race.raceName)
-                                            Spacer()
-                                            Text(CustomDateFormatter().formattedDate(forDate: race.date, forTime: race.time, dateStyle: .medium))
-                                            Image(systemName: "chevron.right")
-                                        }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
-                                            .foregroundColor(.primary)
+                                ForEach ($viewModel.rows.wrappedValue) { row in
+                                    NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(title: row.raceName, rows: row.sessions.convert(), season: row.season, round: row.round))) {
+                                        SeasonRow(row: row)
                                     }
                                 }
                             }
@@ -43,3 +37,12 @@ struct SeasonView: View {
         }
     }
 }
+
+struct SeasonView_Previews: PreviewProvider {
+    static var previews: some View {
+        let viewModel = SeasonViewModel(year: 2022)
+        viewModel.rows = SeasonRowData.testData
+        return SeasonView(viewModel: viewModel).loadCustomFonts()
+    }
+}
+

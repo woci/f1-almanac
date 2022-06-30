@@ -50,12 +50,14 @@ private extension TextStyle {
             return "Medium Header"
         case .body:
             return "Body"
+        case .smallBody:
+            return "Small Body"
         case .tabBarTitleSelected:
             return "Tabbar Title Selected"
         case .tabBarTitleUnselected:
             return "Tabbar Title Unselected"
-        case .smallBody:
-            return "Small Body"
+        case .tinyBody:
+            return "Tiny Body"
         }
     }
 }

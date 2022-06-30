@@ -16,18 +16,19 @@ struct RaceResultRow: View {
             Divider().background(Color.separator)
             HStack(alignment: .center, spacing: 0) {
                 Text(result.position).textStyle(.mediumHeader).padding(.leading, 16).frame(width: 42, alignment: .bottomLeading).foregroundColor(.primary)
-                Text(result.points).textStyle(.smallBody)
+                Text(result.points).textStyle(.tinyBody)
                     .frame(width: 20, alignment: .bottomLeading)
                     .foregroundColor(.secondary)
-                    .padding(.leading, 4)
-                Text(result.name).textStyle(.body)
-                Text(result.number).textStyle(.smallBody)
+                    .padding(.leading, 15)
+                Text(result.name).textStyle(.mediumBody)
+                    .padding(.leading, 23)
+                Text(result.number).textStyle(.tinyBody)
                     .frame(width: 25, alignment: .bottomLeading)
                     .foregroundColor(Color(UIColor.tertiaryLabel))
                     .padding(.leading, 4)
                 Spacer()
-                Text(result.time).textStyle(.smallBody)
-                    .frame(minWidth: 75, maxWidth: 110, alignment: .leading)
+                Text(result.time).textStyle(.tinyBody)
+                    .frame(minWidth: 75, alignment: .leading)
                     .padding(.leading, 4)
                 Image(systemName: "chevron.right")
                     .padding(.trailing, 16)
@@ -50,6 +51,6 @@ extension RaceResultRowData {
     static var testData: [RaceResultRowData] = [
         RaceResultRowData(position: "1.", number: "#44", points: "+25", name: "L. Hamilton", time: "1:24:19.293"),
         RaceResultRowData(position: "2.", number: "#1", points: "+18", name: "M. Verstappen", time: "+ 3.04s"),
-        RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "M. Schumacher", time: "DNF(Withdrew)")
+        RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "M. Schumacher", time: "DNF(Wat)")
     ]
 }

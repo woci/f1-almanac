@@ -28,7 +28,7 @@ struct QualifyingResultView: View {
             } else {
                 ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
                     viewModel.onAppear()
-                }.frame(width: .infinity)
+                }.frame(width: UIScreen.main.bounds.width)
             }
             FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
         }.navigationBarTitle(Text(viewModel.title), displayMode: .large)

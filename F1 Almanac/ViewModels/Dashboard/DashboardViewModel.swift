@@ -10,7 +10,7 @@ import Foundation
 @MainActor class DashboardViewModel: ObservableObject {
     var model: DashboardModel = DashboardModel()
     @Published var showLoader: Bool = false
-    @Published var nextRaceName: String = "Next Race"
+    @Published var nextRaceName: String = ""
     @Published var nextRaceImage: URL?
     @Published var flagURL: URL = URL(string: "https://google.com")!
     @Published var nextRaceRemainingTime: String = ""

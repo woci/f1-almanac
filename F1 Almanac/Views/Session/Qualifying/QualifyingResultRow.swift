@@ -16,18 +16,18 @@ struct QualifyingResultRow: View {
             Divider().background(Color.separator)
             HStack(alignment: .center, spacing: 0) {
                 Text(result.position).textStyle(.mediumHeader).padding(.leading, 16).frame(width: 42, alignment: .bottomLeading).foregroundColor(.primary)
-                Text(result.name).textStyle(.body).padding(.leading, 4)
-                Text(result.number).textStyle(.smallBody).frame(width: 25, alignment: .bottomLeading).foregroundColor(Color(UIColor.tertiaryLabel))
+                Text(result.name).textStyle(.body).padding(.leading, 11)
+                Text(result.number).textStyle(.tinyBody).frame(width: 25, alignment: .bottomLeading).foregroundColor(Color(UIColor.tertiaryLabel))
                 Spacer()
-                Text(result.q1).textStyle(.smallBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading)
+                Text(result.q1).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading)
                 if let q2 = result.q2 {
-                    Text(q2).textStyle(.smallBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 4)
+                    Text(q2).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 2)
                 } else {
                     ColumnSpacer()
                 }
 
                 if let q3 = result.q3 {
-                    Text(q3).textStyle(.smallBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 4)
+                    Text(q3).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 2)
                 } else {
                     ColumnSpacer()
                 }
@@ -40,7 +40,7 @@ struct QualifyingResultRow: View {
 
 struct ColumnSpacer: View {
     var body: some View {
-        Spacer().frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 4)
+        Spacer().frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 2)
     }
 }
 

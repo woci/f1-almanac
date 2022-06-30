@@ -23,7 +23,7 @@ struct DashboardView: View {
                                     .blur(radius: 1.0)
                             }
                         }
-                        Text($viewModel.nextRaceRemainingTime.wrappedValue).textStyle(.mediumBody).foregroundColor(.secondary)
+                        Text($viewModel.nextRaceRemainingTime.wrappedValue).textStyle(.mediumBody).foregroundColor(.secondary).shadow(radius: 10)
                         Spacer()
                     }
                 }.background(Color.background).navigationBarTitle(Text($viewModel.nextRaceName.wrappedValue), displayMode: .large)
@@ -95,7 +95,10 @@ extension View {
 struct DashboardView_Previews: PreviewProvider {
     static let viewModel = DashboardViewModel()
     static var previews: some View {
-        DashboardView(viewModel: viewModel).loadCustomFonts()
+        viewModel.nextRaceName = "Hungaroring Grand Prix"
+        viewModel.nextRaceRemainingTime = "4 days, 04:33:57"
+        viewModel.nextRaceImage = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Silverstone_Circuit_2020.png/1000px-Silverstone_Circuit_2020.png")
+        return DashboardView(viewModel: viewModel).loadCustomFonts()
     }
 }
 

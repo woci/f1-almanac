@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 @MainActor class DashboardViewModel: ObservableObject {
     var model: DashboardModel = DashboardModel()
@@ -14,6 +15,7 @@ import Foundation
     @Published var nextRaceImage: URL?
     @Published var flagURL: URL = URL(string: "https://google.com")!
     @Published var nextRaceRemainingTime: String = ""
+    @Published var raceDetailViewModel: RaceDetailsViewModel?
 
     private var nextRaceTimer: Timer?
 
@@ -25,14 +27,16 @@ import Foundation
             if let nextRace = nextRace {
                 nextRaceName = nextRace.raceName
                 if let circiutWikiName = nextRace.circuit.circiutWikiName {
-                    nextRaceImage = await model.loadCircuitImage(ofWikiPageName: circiutWikiName)
+                    nextRaceImage = await model.loadCircuitImage(ofWikiPageName: circiutWikiName, width: UIScreen.main.nativeBounds.width)
                 }
 
                 nextRaceRemainingTime = remainingTime(until: nextRace)
-
+                
                 nextRaceTimer?.invalidate()
                 nextRaceTimer = Optional.none
                 nextRaceTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDown), userInfo: nil, repeats: true)
+
+                raceDetailViewModel = RaceDetailsViewModel(title: nextRaceName, rows: nextRace.sessions.convert(), season: nextRace.season, round: nextRace.round)
             } else {
                 //TODO
                 print("No Next Race")

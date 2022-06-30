@@ -24,9 +24,14 @@ struct PlaceholderableAsyncImage: View {
             case .success(let image):
                 ZStack {
                     if blurred {
-                        image.resizable().scaledToFit().blur(radius: 50)
+                        image
+                            .resizable()
+                            .scaledToFit()
+                            .blur(radius: 50)
                     }
-                    image.resizable().scaledToFit()
+                    image
+                        .resizable()
+                        .scaledToFit()
                 }
             case .failure(_):
                 Placeholder(blurred: blurred)
@@ -59,7 +64,7 @@ struct Placeholder: View {
 
 struct PlaceholderableAsyncImage_Previews: PreviewProvider {
     static var previews: some View {
-        PlaceholderableAsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Baku_Formula_One_circuit_map.png/1920px-Baku_Formula_One_circuit_map.png"), blurred: true).previewLayout(PreviewLayout.fixed(width: 375, height: 300))
+        PlaceholderableAsyncImage(url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Silverstone_Circuit_2020.png/1000px-Silverstone_Circuit_2020.png"), blurred: true).previewLayout(PreviewLayout.fixed(width: 375, height: 300))
     }
 }
 

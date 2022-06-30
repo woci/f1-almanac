@@ -29,13 +29,13 @@ class DashboardModel {
         }
     }
 
-    func loadCircuitImage(ofWikiPageName pageName: String) async -> URL? {
+    func loadCircuitImage(ofWikiPageName pageName: String, width: CGFloat) async -> URL? {
         if let nextRaceCircuitImage = self.nextRaceCircuitImage, isActualRaceUpToDate(atDate: Date()) {
             return nextRaceCircuitImage
         }
 
         do {
-            nextRaceCircuitImage = try await wikiImageService.imageURL(of: pageName, imageSize: 1000)
+            nextRaceCircuitImage = try await wikiImageService.imageURL(of: pageName, imageSize: width)
             return nextRaceCircuitImage
         } catch {
             print(error)

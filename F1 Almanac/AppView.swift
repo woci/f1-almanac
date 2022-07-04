@@ -11,7 +11,7 @@ struct AppView: View {
     var body: some View {
         TabView {
             let dashboardViewModel = DashboardViewModel()
-            DashboardView(viewModel: dashboardViewModel).tabItem { TabViewItem(type: .dashboard) }.onAppear {
+            DashboardView(viewModel: dashboardViewModel).tabItem { TabViewItem(type: .currentGP) }.onAppear {
                 dashboardViewModel.onAppear()
             }
             let seasonViewModel = SeasonViewModel(year: Calendar.current.dateComponents([.year], from: Date()).year!)
@@ -36,12 +36,12 @@ struct TabViewItem: View {
 }
 
 enum TabViewItemType: String {
-    case dashboard  = "Dashboard"
+    case currentGP  = "Current Grand Prix"
     case season  = "Season"
 
     var image: Image {
         switch self {
-        case .dashboard:  return Image(systemName: "macwindow")
+        case .currentGP:  return Image(systemName: "macwindow")
         case .season:  return Image(systemName: "list.dash")
         }
     }

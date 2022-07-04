@@ -12,7 +12,7 @@
 		630107012858AC8900B91450 /* RaceResultModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107002858AC8900B91450 /* RaceResultModel.swift */; };
 		630107032858AE8E00B91450 /* SessionResultService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107022858AE8E00B91450 /* SessionResultService.swift */; };
 		630107052858AED700B91450 /* SessionResultRequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107042858AED700B91450 /* SessionResultRequestBuilder.swift */; };
-		630107072858B47600B91450 /* RaceDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107062858B47600B91450 /* RaceDetailsRow.swift */; };
+		630107072858B47600B91450 /* GrandPrixDetailsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107062858B47600B91450 /* GrandPrixDetailsRow.swift */; };
 		630107092858C8E900B91450 /* QualifyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 630107082858C8E900B91450 /* QualifyResult.swift */; };
 		6301070B2858D39400B91450 /* Response.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301070A2858D39400B91450 /* Response.swift */; };
 		6301070D285A08EB00B91450 /* RaceResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6301070C285A08EB00B91450 /* RaceResult.swift */; };
@@ -22,9 +22,9 @@
 		634113B42857513F000113C7 /* SeasonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B32857513F000113C7 /* SeasonView.swift */; };
 		634113B628575169000113C7 /* SeasonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B528575169000113C7 /* SeasonViewModel.swift */; };
 		634113B928576A4B000113C7 /* SeasonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113B828576A4B000113C7 /* SeasonModel.swift */; };
-		634113BF28576E8D000113C7 /* RaceDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113BE28576E8D000113C7 /* RaceDetailsModel.swift */; };
-		635004132851E79900C2C082 /* RaceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* RaceDetailsView.swift */; };
-		635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */; };
+		634113BF28576E8D000113C7 /* GrandPrixDetailsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634113BE28576E8D000113C7 /* GrandPrixDetailsModel.swift */; };
+		635004132851E79900C2C082 /* GrandPrixDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004122851E79900C2C082 /* GrandPrixDetailsView.swift */; };
+		635004162851E7FF00C2C082 /* GrandPrixDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635004152851E7FF00C2C082 /* GrandPrixDetailsViewModel.swift */; };
 		63500418285220A400C2C082 /* FontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63500417285220A400C2C082 /* FontView.swift */; };
 		63916466286D92FD006C6A55 /* SeasonRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63916465286D92FD006C6A55 /* SeasonRow.swift */; };
 		639DF44F286DD4FA00205FD5 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639DF44E286DD4FA00205FD5 /* BackgroundView.swift */; };
@@ -88,7 +88,7 @@
 		630107002858AC8900B91450 /* RaceResultModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResultModel.swift; sourceTree = "<group>"; };
 		630107022858AE8E00B91450 /* SessionResultService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultService.swift; sourceTree = "<group>"; };
 		630107042858AED700B91450 /* SessionResultRequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionResultRequestBuilder.swift; sourceTree = "<group>"; };
-		630107062858B47600B91450 /* RaceDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsRow.swift; sourceTree = "<group>"; };
+		630107062858B47600B91450 /* GrandPrixDetailsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandPrixDetailsRow.swift; sourceTree = "<group>"; };
 		630107082858C8E900B91450 /* QualifyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QualifyResult.swift; sourceTree = "<group>"; };
 		6301070A2858D39400B91450 /* Response.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Response.swift; sourceTree = "<group>"; };
 		6301070C285A08EB00B91450 /* RaceResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceResult.swift; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		634113B32857513F000113C7 /* SeasonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonView.swift; sourceTree = "<group>"; };
 		634113B528575169000113C7 /* SeasonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonViewModel.swift; sourceTree = "<group>"; };
 		634113B828576A4B000113C7 /* SeasonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonModel.swift; sourceTree = "<group>"; };
-		634113BE28576E8D000113C7 /* RaceDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsModel.swift; sourceTree = "<group>"; };
-		635004122851E79900C2C082 /* RaceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsView.swift; sourceTree = "<group>"; };
-		635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceDetailsViewModel.swift; sourceTree = "<group>"; };
+		634113BE28576E8D000113C7 /* GrandPrixDetailsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandPrixDetailsModel.swift; sourceTree = "<group>"; };
+		635004122851E79900C2C082 /* GrandPrixDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandPrixDetailsView.swift; sourceTree = "<group>"; };
+		635004152851E7FF00C2C082 /* GrandPrixDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrandPrixDetailsViewModel.swift; sourceTree = "<group>"; };
 		63500417285220A400C2C082 /* FontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontView.swift; sourceTree = "<group>"; };
 		63916465286D92FD006C6A55 /* SeasonRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeasonRow.swift; sourceTree = "<group>"; };
 		639DF44E286DD4FA00205FD5 /* BackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundView.swift; sourceTree = "<group>"; };
@@ -234,24 +234,24 @@
 		634113C028576E90000113C7 /* RaceDetails */ = {
 			isa = PBXGroup;
 			children = (
-				634113BE28576E8D000113C7 /* RaceDetailsModel.swift */,
+				634113BE28576E8D000113C7 /* GrandPrixDetailsModel.swift */,
 			);
 			path = RaceDetails;
 			sourceTree = "<group>";
 		};
-		635004112851E78500C2C082 /* RaceDetails */ = {
+		635004112851E78500C2C082 /* GrandPrixDetails */ = {
 			isa = PBXGroup;
 			children = (
-				635004122851E79900C2C082 /* RaceDetailsView.swift */,
-				630107062858B47600B91450 /* RaceDetailsRow.swift */,
+				635004122851E79900C2C082 /* GrandPrixDetailsView.swift */,
+				630107062858B47600B91450 /* GrandPrixDetailsRow.swift */,
 			);
-			path = RaceDetails;
+			path = GrandPrixDetails;
 			sourceTree = "<group>";
 		};
 		635004142851E7F300C2C082 /* RaceDetails */ = {
 			isa = PBXGroup;
 			children = (
-				635004152851E7FF00C2C082 /* RaceDetailsViewModel.swift */,
+				635004152851E7FF00C2C082 /* GrandPrixDetailsViewModel.swift */,
 			);
 			path = RaceDetails;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			children = (
 				630106F92858ABEF00B91450 /* Session */,
 				634113B22857512C000113C7 /* Season */,
-				635004112851E78500C2C082 /* RaceDetails */,
+				635004112851E78500C2C082 /* GrandPrixDetails */,
 				63DDD458284A4D8100B78236 /* Components */,
 				63C6EB402848EF5E0028554F /* Dashboard */,
 			);
@@ -640,7 +640,7 @@
 				630107092858C8E900B91450 /* QualifyResult.swift in Sources */,
 				630107032858AE8E00B91450 /* SessionResultService.swift in Sources */,
 				63C6EB472848F14F0028554F /* InjectedPropertyWrapper.swift in Sources */,
-				630107072858B47600B91450 /* RaceDetailsRow.swift in Sources */,
+				630107072858B47600B91450 /* GrandPrixDetailsRow.swift in Sources */,
 				63DDD463284F7EB100B78236 /* Font+custom.swift in Sources */,
 				63DDD465284F806700B78236 /* F1Fonts.swift in Sources */,
 				63B77A4C2862608C00BD39F1 /* QualifyingResultView.swift in Sources */,
@@ -656,11 +656,11 @@
 				634113B42857513F000113C7 /* SeasonView.swift in Sources */,
 				630106FB2858AC0000B91450 /* RaceResultView.swift in Sources */,
 				63C6EB082848D26B0028554F /* F1_AlmanacApp.swift in Sources */,
-				634113BF28576E8D000113C7 /* RaceDetailsModel.swift in Sources */,
+				634113BF28576E8D000113C7 /* GrandPrixDetailsModel.swift in Sources */,
 				63C6EB4F2848FA570028554F /* Race + dateTime.swift in Sources */,
-				635004162851E7FF00C2C082 /* RaceDetailsViewModel.swift in Sources */,
+				635004162851E7FF00C2C082 /* GrandPrixDetailsViewModel.swift in Sources */,
 				639DF44F286DD4FA00205FD5 /* BackgroundView.swift in Sources */,
-				635004132851E79900C2C082 /* RaceDetailsView.swift in Sources */,
+				635004132851E79900C2C082 /* GrandPrixDetailsView.swift in Sources */,
 				63E1804F286C704A00D2A2DB /* RaceResultColumnHeader.swift in Sources */,
 				63500418285220A400C2C082 /* FontView.swift in Sources */,
 				6301070B2858D39400B91450 /* Response.swift in Sources */,

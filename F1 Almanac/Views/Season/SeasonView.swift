@@ -12,14 +12,14 @@ struct SeasonView: View {
     @StateObject var viewModel: SeasonViewModel
 
     var body: some View {
-        GeometryReader { geometry in
-            ZStack {
-                NavigationView {
+        ZStack {
+            NavigationView {
+                BackgroundViewContainer {
                     ScrollView {
                         if !$viewModel.rows.wrappedValue.isEmpty {
                             LazyVStack {
                                 ForEach ($viewModel.rows.wrappedValue) { row in
-                                    NavigationLink(destination: RaceDetailsView(viewModel: RaceDetailsViewModel(title: row.raceName, rows: row.sessions.convert(), season: row.season, round: row.round))) {
+                                    NavigationLink(destination: GrandPrixDetailsContainerView(viewModel: GrandPrixDetailsViewModel(title: row.raceName, rows: row.sessions.convert(), season: row.season, round: row.round))) {
                                         SeasonRow(row: row)
                                     }
                                 }
@@ -27,13 +27,14 @@ struct SeasonView: View {
                         } else {
                             ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
                                 viewModel.onAppear()
-                            }.frame(width: geometry.size.width)
+                            }.frame(width: UIScreen.main.bounds.width)
                         }
-                    }.background(Color.background)
-                        .navigationBarTitle(Text($viewModel.year.wrappedValue), displayMode: .large)
+                    }
+                    .background(Color.background.opacity(0.7))
+                    .navigationBarTitle(Text($viewModel.year.wrappedValue), displayMode: .large)
                 }
-                FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
             }
+            FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
         }
     }
 }

@@ -12,26 +12,28 @@ struct QualifyingResultView: View {
     @StateObject var viewModel: QualifyingResultViewModel
     static var columnWidth: CGFloat = 55
     var body: some View {
-        ZStack {
-            if !$viewModel.rows.wrappedValue.isEmpty {
-                VStack(spacing: 0) {
-                    QualifyingResultHeader()
-                    ScrollView {
-                        let results = $viewModel.rows.wrappedValue
-                        LazyVStack {
-                            ForEach (results) { result in
-                                QualifyingResultRow(result: result)
+        BackgroundViewContainer {
+            ZStack {
+                if !$viewModel.rows.wrappedValue.isEmpty {
+                    VStack(spacing: 0) {
+                        QualifyingResultHeader()
+                        ScrollView {
+                            let results = $viewModel.rows.wrappedValue
+                            LazyVStack {
+                                ForEach (results) { result in
+                                    QualifyingResultRow(result: result)
+                                }
                             }
-                        }
-                    }.background(Color.background)
+                        }.background(Color.background.opacity(0.7))
+                    }
+                } else {
+                    ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
+                        viewModel.onAppear()
+                    }.frame(width: UIScreen.main.bounds.width)
                 }
-            } else {
-                ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
-                    viewModel.onAppear()
-                }.frame(width: UIScreen.main.bounds.width)
-            }
-            FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
-        }.navigationBarTitle(Text(viewModel.title), displayMode: .large)
+                FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
+            }.navigationBarTitle(Text(viewModel.title), displayMode: .large)
+        }
     }
 }
 

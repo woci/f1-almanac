@@ -7,7 +7,7 @@
 
 import Foundation
 
-class RaceDetailsModel {
+class GrandPrixDetailsModel {
     func loadResult() {
 
     }

@@ -28,6 +28,20 @@ struct BackgroundView: View {
     }
 }
 
+struct BackgroundViewContainer <Content: View>: View {
+
+    var content: () -> Content
+
+    init(@ViewBuilder content: @escaping () -> Content) { self.content = content }
+
+    var body: some View {
+        ZStack {
+            BackgroundView(blurRadius: 50)
+            content()
+        }
+    }
+}
+
 struct BackgroundView_Previews: PreviewProvider {
     static var previews: some View {
         BackgroundView(blurRadius: 50.0)

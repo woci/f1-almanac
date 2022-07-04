@@ -14,40 +14,40 @@ struct DashboardView: View {
     var body: some View {
         ZStack {
             NavigationView {
-                ScrollView {
-                    ZStack {
+                BackgroundViewContainer {
+                    ScrollView {
                         VStack(spacing: 0) {
-                            ZStack (alignment: .bottom){
-                                if let nextRace = viewModel.model.nextRace {
-                                    NavigationLink(destination:RaceDetailsView(viewModel: RaceDetailsViewModel(title: nextRace.raceName, rows: nextRace.sessions.convert(), season: nextRace.season, round: nextRace.round))) {
-                                        PlaceholderableAsyncImage(url: $viewModel.nextRaceImage.wrappedValue)
-                                    }
-                                }
-                                Color.black.opacity(0.7).frame(height: TextStyle.title.lineHeight * 2)
-                                Text($viewModel.nextRaceRemainingTime.wrappedValue).textStyle(.title).foregroundColor(.white).shadow(radius: 10)
-                                    .padding(.bottom, TextStyle.title.lineHeight)
-                                    .frame(height: TextStyle.title.lineHeight)
+
+                            PlaceholderableAsyncImage(url: $viewModel.nextRaceImage.wrappedValue).frame(width: UIScreen.main.bounds.width).background(Color.background.opacity(0.7))
+                            if let remainginTime = $viewModel.nextRaceRemainingTime.wrappedValue {
+                                ZStack (alignment: .bottom){
+                                    Color.primary.opacity(0.6).frame(height: TextStyle.title.lineHeight * 2)
+                                    Text(remainginTime).textStyle(.title)
+                                        .foregroundColor(.white)
+                                        .padding(.bottom, TextStyle.title.lineHeight)
+                                        .frame(height: TextStyle.title.lineHeight)
+                                }.background(Color.background.opacity(0.7))
                             }
                             if $viewModel.raceDetailViewModel.wrappedValue != nil {
-                                RaceDetailsView(viewModel: $viewModel.raceDetailViewModel.wrappedValue!)
+                                GrandPrixDetailsView(viewModel: $viewModel.raceDetailViewModel.wrappedValue!)
                             } else {
-                                Spacer()
+                                Spacer().background(Color.background.opacity(0.7))
                             }
                         }
-                    }
-                }.background(Color.background).navigationBarTitle(Text($viewModel.nextRaceName.wrappedValue), displayMode: .large)
+                    }.navigationBarTitle(Text($viewModel.nextRaceName.wrappedValue), displayMode: .large)
+                }
+                FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
             }
-            FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
         }
     }
 }
 
 extension Array where Element == Session {
-    func convert() -> [RaceDetailsRowData] {
+    func convert() -> [GrandPrixDetailsRowData] {
         self.map {
             let isSessionQualifyOrRace = $0.type == .race || $0.type == .qualify
             let navigationEnabled = $0.dateTime < Date() && isSessionQualifyOrRace
-            return RaceDetailsRowData(name: $0.name,
+            return GrandPrixDetailsRowData(name: $0.name,
                                       dateTime: CustomDateFormatter().formattedDate(for: $0.dateTime,
                                                                                        dateStyle: .medium,
                                                                                        timeStyle: .medium),

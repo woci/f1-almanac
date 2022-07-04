@@ -17,7 +17,7 @@ struct PlaceholderableAsyncImage: View {
             switch phase {
             case .empty:
                 ZStack {
-                    Spacer().background(.gray).scaledToFit().padding(EdgeInsets.init(top: 0, leading: 8, bottom: 0, trailing: 8))
+                    Spacer().background(.gray).padding(EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0))
                     ProgressView()
                         .progressViewStyle(.circular)
                 }

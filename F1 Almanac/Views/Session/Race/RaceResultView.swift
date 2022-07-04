@@ -12,27 +12,29 @@ struct RaceResultView: View {
     @StateObject var viewModel: RaceResultViewModel
 
     var body: some View {
-        ZStack {
-            ScrollView {
-                if !$viewModel.rows.wrappedValue.isEmpty {
-                    let results = $viewModel.rows.wrappedValue
-                    VStack(alignment: .leading, spacing: 0) {
-                        RaceResultHeader(laps: $viewModel.laps.wrappedValue, fastestLapDriver: $viewModel.fastestLapDriver.wrappedValue, fastestLap: $viewModel.fastestLap.wrappedValue)
-                        RaceResultColumnHeader()
-                        LazyVStack {
-                            ForEach (results) { result in
-                                RaceResultRow(result: result)
+        BackgroundViewContainer {
+            ZStack {
+                ScrollView {
+                    if !$viewModel.rows.wrappedValue.isEmpty {
+                        let results = $viewModel.rows.wrappedValue
+                        VStack(alignment: .leading, spacing: 0) {
+                            RaceResultHeader(laps: $viewModel.laps.wrappedValue, fastestLapDriver: $viewModel.fastestLapDriver.wrappedValue, fastestLap: $viewModel.fastestLap.wrappedValue)
+                            RaceResultColumnHeader()
+                            LazyVStack {
+                                ForEach (results) { result in
+                                    RaceResultRow(result: result)
+                                }
                             }
                         }
+                    } else {
+                        ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
+                            viewModel.onAppear()
+                        }.frame(width: UIScreen.main.bounds.width)
                     }
-                } else {
-                    ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
-                        viewModel.onAppear()
-                    }.frame(width: UIScreen.main.bounds.width)
-                }
-            }.background(Color.background)
-                .navigationBarTitle(Text(viewModel.title), displayMode: .large)
-            FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
+                }.background(Color.background.opacity(0.7))
+                    .navigationBarTitle(Text(viewModel.title), displayMode: .large)
+                FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
+            }
         }
     }
 }

@@ -21,14 +21,15 @@ struct RaceResultRow: View {
                     .foregroundColor(.secondary)
                     .padding(.leading, 15)
                 Text(result.name).textStyle(.mediumBody)
+                    .frame(width: 45, alignment: .bottomLeading)
                     .padding(.leading, 23)
                 Text(result.number).textStyle(.tinyBody)
                     .frame(width: 25, alignment: .bottomLeading)
                     .foregroundColor(Color(UIColor.tertiaryLabel))
                     .padding(.leading, 4)
                 Spacer()
-                Text(result.time).textStyle(.tinyBody)
-                    .frame(minWidth: 75, alignment: .leading)
+                Text(result.time).textStyle(.body)
+                    .frame(minWidth: 90, alignment: .leading)
                     .padding(.leading, 4)
                 Image(systemName: "chevron.right")
                     .padding(.trailing, 16)
@@ -49,8 +50,8 @@ struct RaceResultRow_Previews: PreviewProvider {
 
 extension RaceResultRowData {
     static var testData: [RaceResultRowData] = [
-        RaceResultRowData(position: "1.", number: "#44", points: "+25", name: "L. Hamilton", time: "1:24:19.293"),
-        RaceResultRowData(position: "2.", number: "#1", points: "+18", name: "M. Verstappen", time: "+ 3.04s"),
-        RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "M. Schumacher", time: "DNF(Wat)")
+        RaceResultRowData(position: "1.", number: "#44", points: "+25", name: "HAM", time: "1:24:19.293"),
+        RaceResultRowData(position: "2.", number: "#1", points: "+18", name: "VER", time: "+ 3.04s"),
+        RaceResultRowData(position: "20.", number: "#47", points: "+0", name: "MSC", time: "DNF(Wat)")
     ]
 }

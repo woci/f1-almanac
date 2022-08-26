@@ -15,25 +15,37 @@ struct QualifyingResultRow: View {
         VStack {
             Divider().background(Color.separator)
             HStack(alignment: .center, spacing: 0) {
-                Text(result.position).textStyle(.mediumHeader).padding(.leading, 16).frame(width: 42, alignment: .bottomLeading).foregroundColor(.primary)
-                Text(result.name).textStyle(.body).padding(.leading, 11)
-                Text(result.number).textStyle(.tinyBody).frame(width: 25, alignment: .bottomLeading).foregroundColor(Color(UIColor.tertiaryLabel))
+                Text(result.position).textStyle(.mediumHeader)
+                    .padding(.leading, 16).frame(width: 42, alignment: .bottomLeading).foregroundColor(.primary)
+                Text(result.name).textStyle(.mediumBody)
+                    .frame(width: 45, alignment: .bottomLeading)
+                    .padding(.leading, 11)
+                Text(result.number).textStyle(.tinyBody)
+                    .frame(width: 25, alignment: .bottomLeading)
+                    .foregroundColor(Color(UIColor.tertiaryLabel))
                 Spacer()
-                Text(result.q1).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading)
+                Text(result.q1).textStyle(.body)
+                    .frame(width: QualifyingResultView.columnWidth, alignment: .leading)
                 if let q2 = result.q2 {
-                    Text(q2).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 2)
+                    Text(q2).textStyle(.body)
+                        .frame(width: QualifyingResultView.columnWidth, alignment: .leading)
+                        .padding(.leading, 2)
                 } else {
                     ColumnSpacer()
                 }
 
                 if let q3 = result.q3 {
-                    Text(q3).textStyle(.tinyBody).frame(width: QualifyingResultView.columnWidth, alignment: .leading).padding(.leading, 2)
+                    Text(q3).textStyle(.body)
+                        .frame(width: QualifyingResultView.columnWidth, alignment: .leading)
+                        .padding(.leading, 2)
                 } else {
                     ColumnSpacer()
                 }
-                Image(systemName: "chevron.right").frame(width: 5)
+                Image(systemName: "chevron.right")
+                    .frame(width: 5)
                     .padding(.trailing, 16)
-            }.padding(.top, 8).padding(.bottom, 8)
+            }.padding(.top, 8)
+                .padding(.bottom, 8)
         }
     }
 }

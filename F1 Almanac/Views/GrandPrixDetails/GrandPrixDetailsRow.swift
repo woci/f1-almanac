@@ -21,7 +21,7 @@ struct GrandPrixDetailsRow: View {
                 Spacer()
                 Text(formattedDateTime)
                     .textStyle(.mediumBody)
-                    .frame(minWidth: 50, maxWidth: 120)
+                    .frame(minWidth: 50, maxWidth: 130, alignment: .leading)
                 Image(systemName: "chevron.right").isHidden(chevronIsHidden)
             }.padding(EdgeInsets(top: 8, leading: 16, bottom: 8, trailing: 16))
         }
@@ -32,7 +32,7 @@ struct GrandPrixDetailsRow_Previews: PreviewProvider {
     static var previews: some View {
         VStack {
             ForEach(GrandPrixDetailsRowData.testData) { row in
-                GrandPrixDetailsRow(title: row.name, formattedDateTime: row.dateTime)
+                GrandPrixDetailsRow(title: row.name, formattedDateTime: row.dateTime).loadCustomFonts()
             }
         }.previewLayout(PreviewLayout.fixed(width: 375, height: 400))
     }

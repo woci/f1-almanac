@@ -10,7 +10,7 @@ import SwiftUI
 
 struct QualifyingResultView: View {
     @StateObject var viewModel: QualifyingResultViewModel
-    static var columnWidth: CGFloat = 55
+    static var columnWidth: CGFloat = 70
     var body: some View {
         BackgroundViewContainer {
             ZStack {

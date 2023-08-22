@@ -12,30 +12,9 @@ struct DashboardView: View {
     @StateObject var viewModel: DashboardViewModel
 
     var body: some View {
-        ZStack {
-            NavigationView {
-                BackgroundViewContainer {
-                    ScrollView {
-                        VStack(spacing: 0) {
-
-                            PlaceholderableAsyncImage(url: $viewModel.nextRaceImage.wrappedValue).frame(width: UIScreen.main.bounds.width).background(Color.background.opacity(0.7))
-                            if let remainginTime = $viewModel.nextRaceRemainingTime.wrappedValue {
-                                ZStack (alignment: .bottom){
-                                    Color.primary.opacity(0.6).frame(height: TextStyle.title.lineHeight * 2)
-                                    Text(remainginTime).textStyle(.title)
-                                        .foregroundColor(.white)
-                                        .padding(.bottom, TextStyle.title.lineHeight)
-                                        .frame(height: TextStyle.title.lineHeight)
-                                }.background(Color.background.opacity(0.7))
-                            }
-                            if $viewModel.raceDetailViewModel.wrappedValue != nil {
-                                GrandPrixDetailsView(viewModel: $viewModel.raceDetailViewModel.wrappedValue!)
-                            } else {
-                                Spacer().background(Color.background.opacity(0.7))
-                            }
-                        }
-                    }.navigationBarTitle(Text($viewModel.nextRaceName.wrappedValue), displayMode: .large)
-                }
+        NavigationView {
+            ZStack {
+                GrandPrixDetailsView(viewModel: $viewModel.raceDetailViewModel.wrappedValue)
                 FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
             }
         }
@@ -102,11 +81,11 @@ extension View {
 }
 
 struct DashboardView_Previews: PreviewProvider {
-    static let viewModel = DashboardViewModel()
+    static let viewModel = DashboardViewModel(raceDetailViewModel: GrandPrixDetailsViewModel(title: "Hungaroring Grand Prix", rows: GrandPrixDetailsRowData.testData, season: 2022, round: 11,nextRaceRemainingTime: "4 days, 04:33:57", nextRaceImage: URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Silverstone_Circuit_2020.png/1080px-Silverstone_Circuit_2020.png"), model: GrandPrixDetailsModel(race: Season.RaceSchedule(sessions: [Session(type:.fp1, date: "2023.05.26", time: "11:10")], season: 2022, round: 11, url: "", raceName: "Hungaroring Grand Prix", circuit: Circuit(circuitID: "", url: "", circuitName: "", location: Location(lat: "", long: "", locality: "", country: "")), date: "2023.05.26", time: "11:10"))))
     static var previews: some View {
-        viewModel.nextRaceName = "Hungaroring Grand Prix"
-        viewModel.nextRaceRemainingTime = "4 days, 04:33:57"
-        viewModel.nextRaceImage = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Silverstone_Circuit_2020.png/1080px-Silverstone_Circuit_2020.png")
+//        viewModel.raceDetailViewModel?.title = "Hungaroring Grand Prix"
+//        viewModel.raceDetailViewModel?.nextRaceRemainingTime = "4 days, 04:33:57"
+//        viewModel.raceDetailViewModel?.nextRaceImage = URL(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/Silverstone_Circuit_2020.png/1080px-Silverstone_Circuit_2020.png")
         return DashboardView(viewModel: viewModel).loadCustomFonts()
     }
 }

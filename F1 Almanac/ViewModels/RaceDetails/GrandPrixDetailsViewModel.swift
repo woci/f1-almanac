@@ -6,19 +6,42 @@
 //
 
 import Foundation
+import UIKit
 
-@MainActor class GrandPrixDetailsViewModel: ObservableObject {
-    var model: GrandPrixDetailsModel = GrandPrixDetailsModel()
-    var rows: [GrandPrixDetailsRowData] = []
-    var title: String
+@MainActor protocol GrandPrixDetailsViewModelProtocol: ObservableObject {
+    var model: GrandPrixDetailsModel { get set }
+    var rows: [GrandPrixDetailsRowData] { get set }
+    var nextRaceImage: URL? { get set }
+    var title: String { get set }
+    var season: Int { get set }
+    var round: Int { get set }
+}
+
+class GrandPrixDetailsViewModel: GrandPrixDetailsViewModelProtocol {
+    var model: GrandPrixDetailsModel
+    @Published var rows: [GrandPrixDetailsRowData] = []
+    @Published var nextRaceRemainingTime: String?
+    @Published var nextRaceImage: URL?
+    @Published var title: String
     var season: Int
     var round: Int
 
-    init(title: String, rows: [GrandPrixDetailsRowData], season: Int, round: Int) {
+    init(title: String, rows: [GrandPrixDetailsRowData], season: Int, round: Int, nextRaceRemainingTime: String? = Optional.none, nextRaceImage: URL? = Optional.none, model: GrandPrixDetailsModel) {
+        self.model = model
         self.title = title
         self.season = season
         self.round = round
         self.rows.append(contentsOf: rows)
+        self.nextRaceRemainingTime = nextRaceRemainingTime
+        self.nextRaceImage = nextRaceImage
+    }
+
+    func onAppear() {
+        if let circiutWikiName = model.race?.circuit.circiutWikiName {
+            Task.init(priority: .userInitiated, operation: {
+                nextRaceImage = await model.loadCircuitImage(ofWikiPageName: circiutWikiName, width: UIScreen.main.nativeBounds.width)
+            })
+        }
     }
 }
 

@@ -12,6 +12,7 @@ import Foundation
     @Published var showLoader: Bool = false
     @Published var year: String
     @Published var rows: [SeasonRowData] = []
+    var races: [Season.RaceSchedule] = []
 
     init(year: Int) {
         self.model = SeasonModel(year: year)
@@ -26,6 +27,7 @@ import Foundation
                 return
             }
 
+            self.races.append(contentsOf: season.races)
             self.rows.append(contentsOf: season.races.convert())
             self.year = "\(season.year)"
 

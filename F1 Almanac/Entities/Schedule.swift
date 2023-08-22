@@ -43,6 +43,11 @@ struct Season: Codable {
             case sprint = "Sprint"
         }
 
+        init(sessions: [Session], season: Int, round: Int, url: String, raceName: String, circuit: Circuit, date: String, time: String) {
+            self.sessions = sessions
+            super.init(season: season, round: round, url: url, raceName: raceName, circuit: circuit, date: date, time: time)
+        }
+
         required init(from decoder: Decoder) throws {
             let container = try decoder.container(keyedBy: CodingKeys.self)
 
@@ -92,9 +97,19 @@ class Race: Codable, Equatable, Identifiable {
     let id: UUID = UUID()
     let season, round: Int
     let url: String
-    let raceName: String
+    var raceName: String
     let circuit: Circuit
     let date, time: String
+
+    init(season: Int, round: Int, url: String, raceName: String, circuit: Circuit, date: String, time: String) {
+        self.season = season
+        self.round = round
+        self.url = url
+        self.raceName = raceName
+        self.circuit = circuit
+        self.date = date
+        self.time = time
+    }
 
     private enum CodingKeys: String, CodingKey {
         case season, round, url, raceName

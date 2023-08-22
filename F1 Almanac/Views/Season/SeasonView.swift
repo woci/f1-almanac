@@ -19,9 +19,16 @@ struct SeasonView: View {
                         if !$viewModel.rows.wrappedValue.isEmpty {
                             LazyVStack {
                                 ForEach ($viewModel.rows.wrappedValue) { row in
-                                    NavigationLink(destination: GrandPrixDetailsContainerView(viewModel: GrandPrixDetailsViewModel(title: row.raceName, rows: row.sessions.convert(), season: row.season, round: row.round))) {
-                                        SeasonRow(row: row)
+                                    let race = viewModel.races.first { race in
+                                        race.raceName == row.raceName
                                     }
+                                    let model = GrandPrixDetailsModel(race: race)
+                                    let rowViewModel = GrandPrixDetailsViewModel(title: row.raceName, rows: row.sessions.convert(), season: row.season, round: row.round, model: model)
+                                    NavigationLink(destination: GrandPrixDetailsView(viewModel: rowViewModel).onAppear(perform: {
+                                        rowViewModel.onAppear()
+                                    })) {
+                                        SeasonRow(row: row)
+                                    }.environmentObject(viewModel)
                                 }
                             }
                         } else {

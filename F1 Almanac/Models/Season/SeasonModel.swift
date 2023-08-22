@@ -11,6 +11,7 @@ class SeasonModel {
     var year: Int
     private var scheduleService: ScheduleService
     private(set) var season: Season?
+    
 
     init(year: Int, scheduleService: ScheduleService = RESTSchedulService()) {
         self.year = year

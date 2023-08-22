@@ -10,7 +10,7 @@ import SwiftUI
 struct AppView: View {
     var body: some View {
         TabView {
-            let dashboardViewModel = DashboardViewModel()
+            let dashboardViewModel = DashboardViewModel(raceDetailViewModel: GrandPrixDetailsViewModel(title: "", rows: [], season: 0, round: 0, nextRaceRemainingTime: Optional.none, nextRaceImage: Optional.none, model: GrandPrixDetailsModel(race: Season.RaceSchedule(sessions: [], season: 0, round: 0, url:"", raceName: "",circuit: Circuit(circuitID: "", url: Optional.none, circuitName: "", location: Location.init(lat: "", long: "", locality: "", country: "")), date: "", time: ""))))
             DashboardView(viewModel: dashboardViewModel).tabItem { TabViewItem(type: .currentGP) }.onAppear {
                 dashboardViewModel.onAppear()
             }

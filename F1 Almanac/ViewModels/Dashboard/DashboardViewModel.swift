@@ -11,11 +11,11 @@ import UIKit
 @MainActor class DashboardViewModel: ObservableObject {
     var model: DashboardModel = DashboardModel()
     @Published var showLoader: Bool = false
-    @Published var nextRaceName: String = ""
-    @Published var nextRaceImage: URL?
-    @Published var flagURL: URL = URL(string: "https://google.com")!
-    @Published var nextRaceRemainingTime: String?
-    @Published var raceDetailViewModel: GrandPrixDetailsViewModel?
+    @Published var raceDetailViewModel: GrandPrixDetailsViewModel
+
+    init(raceDetailViewModel: GrandPrixDetailsViewModel) {
+        self.raceDetailViewModel = raceDetailViewModel
+    }
 
     private var nextRaceTimer: Timer?
 
@@ -25,18 +25,18 @@ import UIKit
             let nextRace = await model.loadNextRace()
 
             if let nextRace = nextRace {
-                nextRaceName = nextRace.raceName
+
+                raceDetailViewModel.title = nextRace.raceName
                 if let circiutWikiName = nextRace.circuit.circiutWikiName {
-                    nextRaceImage = await model.loadCircuitImage(ofWikiPageName: circiutWikiName, width: UIScreen.main.nativeBounds.width)
+                    raceDetailViewModel.nextRaceImage = await model.loadCircuitImage(ofWikiPageName: circiutWikiName, width: UIScreen.main.nativeBounds.width)
                 }
 
-                nextRaceRemainingTime = remainingTime(until: nextRace.dateTime)
+                raceDetailViewModel.rows = nextRace.sessions.convert()
+                raceDetailViewModel.nextRaceRemainingTime = remainingTime(until: nextRace.dateTime)
                 
                 nextRaceTimer?.invalidate()
                 nextRaceTimer = Optional.none
                 nextRaceTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateCountDown), userInfo: nil, repeats: true)
-
-                raceDetailViewModel = GrandPrixDetailsViewModel(title: nextRaceName, rows: nextRace.sessions.convert(), season: nextRace.season, round: nextRace.round)
             } else {
                 //TODO
                 print("No Next Race")
@@ -51,7 +51,7 @@ import UIKit
             let nextRace = await model.loadNextRace()
 
             if let nextRace = nextRace {
-                nextRaceRemainingTime = remainingTime(until: nextRace.dateTime)
+                raceDetailViewModel.nextRaceRemainingTime = remainingTime(until: nextRace.dateTime)
             }
         }
     }

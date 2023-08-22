@@ -73,9 +73,7 @@ private extension RaceWeekend where DataType == RaceResult {
             RaceResultRowData(position: "\($0.position).",
                               number: "#\($0.number)",
                               points: "+\($0.points)",
-                              name: NameFormatter().formattedName(forFirstname: $0.driver.givenName,
-                                                                  forLastName: $0.driver.familyName,
-                                                                  style: .firstWordAbbreviated),
+                              name: $0.driver.code,
                               time: $0.formattedTime
             )
         })

@@ -13,6 +13,6 @@ protocol CountryFlagService {
 
 struct ConcreteCountryFlagService: CountryFlagService {
     func url(ofFlagForCountryCode countryCode: String) -> URL {
-        URL(string: "https://countryflagsapi.com/png/\(countryCode)")!
+        URL(string: "https://flagsapi.com/\(countryCode)/flat/64.png")!
     }
 }

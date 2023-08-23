@@ -13,7 +13,6 @@ import Foundation
     @Published var rows: [QualifyingResultRowData] = []
     var title: String
 
-
     init(year: Int, round: Int, title: String) {
         self.model = QualifyingResultModel(year: year, round: round)
         self.title = title

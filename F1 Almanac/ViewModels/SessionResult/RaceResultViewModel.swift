@@ -18,7 +18,7 @@ import Foundation
     var title: String
     
     init(year: Int, round: Int, title: String, laps: String = "", fastestLap: String = "", fastestLapDriver: String = "") {
-        self.model = RaceResultModel(year: year, round: round)
+        self.model = RaceResultModel(year: year, round: round, laps: Int(laps) ?? 0)
         self.title = title
         self.laps = laps
         self.fastestLap = fastestLap
@@ -44,7 +44,6 @@ import Foundation
             let lap = Int(laps)! > 1 ? "laps" : "lap"
             self.laps = "\(laps) \(lap)"
         }
-
 
         if let fastestResult: RaceResult.Result = raceResult.table.first?.results.min(where: { (result: RaceResult.Result) -> TimeInterval in
             guard let time = result.fastestLap?.time.time else {

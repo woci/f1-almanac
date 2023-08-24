@@ -14,25 +14,40 @@ struct RaceResultView: View {
     var body: some View {
         BackgroundViewContainer {
             ZStack {
-                ScrollView {
-                    if !$viewModel.rows.wrappedValue.isEmpty {
-                        let results = $viewModel.rows.wrappedValue
-                        VStack(alignment: .leading, spacing: 0) {
-                            RaceResultHeader(laps: $viewModel.laps.wrappedValue, fastestLapDriver: $viewModel.fastestLapDriver.wrappedValue, fastestLap: $viewModel.fastestLap.wrappedValue)
-                            RaceResultColumnHeader()
-                            LazyVStack {
-                                ForEach (results) { result in
-                                    RaceResultRow(result: result)
+                VStack {
+                    Button(action: ({
+
+                    })) {
+                        NavigationLink {
+                            var raceStandingView = SwinjectContainer.shared.container.resolve(RaceStandingView.self, arguments: $viewModel.model.wrappedValue.year, $viewModel.model.wrappedValue.round, $viewModel.model.wrappedValue.laps)
+                            raceStandingView.onAppear {
+                                raceStandingView?.viewModel.onAppear()
+                            }
+                        } label: {
+                            Text("Lap Details".uppercased())
+                                .textStyle(.buttonTitle).foregroundColor(.primary).padding()
+                        }
+                    }.border(.primary).frame(alignment: Alignment.leading)
+                    ScrollView {
+                        if !$viewModel.rows.wrappedValue.isEmpty {
+                            let results = $viewModel.rows.wrappedValue
+                            VStack(alignment: .leading, spacing: 0) {
+                                RaceResultHeader(laps: $viewModel.laps.wrappedValue, fastestLapDriver: $viewModel.fastestLapDriver.wrappedValue, fastestLap: $viewModel.fastestLap.wrappedValue)
+                                RaceResultColumnHeader()
+                                LazyVStack {
+                                    ForEach (results) { result in
+                                        RaceResultRow(result: result)
+                                    }
                                 }
                             }
+                        } else {
+                            ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
+                                viewModel.onAppear()
+                            }.frame(width: UIScreen.main.bounds.width)
                         }
-                    } else {
-                        ErrorView(title: "Error", message: "Something went wrong please try again later", buttonTitle: "Try Again") {
-                            viewModel.onAppear()
-                        }.frame(width: UIScreen.main.bounds.width)
-                    }
-                }.background(Color.background.opacity(0.7))
-                    .navigationBarTitle(Text(viewModel.title), displayMode: .large)
+                    }.background(Color.background.opacity(0.7))
+                        .navigationBarTitle(Text(viewModel.title), displayMode: .large)
+                }
                 FullScreenLoader().isHidden(!$viewModel.showLoader.wrappedValue)
             }
         }

@@ -22,6 +22,7 @@ struct F1_AlmanacApp: App {
 
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
         UINavigationBar.appearance().standardAppearance = appearance
+        SwinjectContainer.shared.register()
     }
 
     var body: some Scene {

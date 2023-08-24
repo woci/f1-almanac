@@ -8,13 +8,15 @@
 import Foundation
 
 class RaceResultModel {
-    private var year: Int
-    private var round: Int
+    var year: Int
+    var round: Int
+    var laps: Int
     private var resultService: SessionResultService
 
-    init(year: Int, round: Int, resultService: SessionResultService = RESTSessionResultService()) {
+    init(year: Int, round: Int, laps: Int, resultService: SessionResultService = RESTSessionResultService()) {
         self.year = year
         self.round = round
+        self.laps = laps
         self.resultService = resultService
     }
 
@@ -28,7 +30,11 @@ class RaceResultModel {
 
     func loadRaceResult() async -> RaceWeekend<RaceResult>? {
         do {
-            return try await resultService.raceResult(forYear: year, forRound: round)
+            let result = try await resultService.raceResult(forYear: year, forRound: round)
+            if let lapsString = result.table.first?.results.first?.laps, let laps = Int(lapsString) {
+                self.laps = laps
+            }
+            return result
         } catch let error {
             print(error)
             return Optional.none

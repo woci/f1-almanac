@@ -9,14 +9,12 @@ import Foundation
 import SwiftUI
 import Swinject
 
-struct RaceStandingView: View {
+struct RaceStandingView: View, Injectable {
     @ObservedObject var viewModel: RaceStandingViewModel
 
-    init(resolver: Resolver) {
-        self.viewModel = resolver.resolve(RaceStandingViewModel.self)!
-    }
-
     var body: some View {
-        RaceStandingChart(standings: [])
+        RaceStandingChart(standings: $viewModel.standings.wrappedValue).onAppear(perform: {
+            viewModel.onAppear()
+        })
     }
 }

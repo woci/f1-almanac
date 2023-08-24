@@ -7,10 +7,17 @@
 
 import Foundation
 
-class RaceStandingViewModel: ObservableObject {
+class RaceStandingViewModel: ObservableObject, Injectable {
     var model: RaceStandingModel
+    var standings: [DriverStanding] = []
 
     init(model: RaceStandingModel) {
         self.model = model
+    }
+
+    func onAppear() {
+        Task {
+           await self.model.getStandings()
+        }
     }
 }

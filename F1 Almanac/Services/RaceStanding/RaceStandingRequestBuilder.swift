@@ -16,6 +16,7 @@ struct RaceStandingRequestBuilder {
         URL(string: Endpoint.base.rawValue)!
             .appendingPathComponent("\(year)")
             .appendingPathComponent("\(round)")
+            .appendingPathComponent("laps")
             .appendingPathComponent("\(lap).json")
     }
 

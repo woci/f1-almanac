@@ -13,8 +13,8 @@ struct RaceStandingView: View, Injectable {
     @ObservedObject var viewModel: RaceStandingViewModel
 
     var body: some View {
-        RaceStandingChart(standings: $viewModel.standings.wrappedValue).onAppear(perform: {
+        RaceStandingChart(standings: $viewModel.standings.wrappedValue, laps: $viewModel.model.laps.wrappedValue).onAppear(perform: {
             viewModel.onAppear()
-        })
+        }).navigationBarTitle(Text("Lap by lap"), displayMode: .large)
     }
 }

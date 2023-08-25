@@ -11,24 +11,41 @@ import SwiftUI
 
 struct RaceStandingChart: View {
     var standings: [DriverStanding]
+    var laps: Int
     var body: some View {
         VStack {
-            Text("Race Standing")
+//            Text("Race Standing")
             ScrollView(.horizontal) {
                 Chart {
                     ForEach(standings) { driver in
                         ForEach(driver.standings) { standing in
-                            LineMark(x: .value("Day", standing.lap), y: .value("Mins", standing.position))
-                        }.foregroundStyle(driver.color)
+                            LineMark(x: .value("Lap", standing.lap), y: .value("Position", standing.position)).foregroundStyle(by: .value("Name", driver.name))
+                                .annotation(position: .overlay,
+                                            alignment: .bottom,
+                                            spacing: 0) {
+                                            Text("\(driver.name)").textStyle(.mediumBody)
+                                            }
+//                            PointMark(x: .value("Lap", standing.lap), y: .value("Position", standing.position)).foregroundStyle(by: .value("Name", driver.name))
+//                                        .opacity(0)
+//                                        .annotation(position: .overlay,
+//                                                    alignment: .bottom,
+//                                                    spacing: 0) {
+//                                            Text("\(driver.name)").textStyle(.mediumBody).frame(width: 30)
+//                                                    }
+                        }
                     }
-                }.frame(width: 4000.0)
+                }.chartForegroundStyleScale(range: standings.map({$0.color}))
+                    .frame(width: 30 * CGFloat(laps))
                     .chartXAxis {
                         AxisMarks(values: .automatic(desiredCount: standings.count))
                     }.chartYAxis {
-                        AxisMarks(values: .automatic(desiredCount: 20))
-                    }.chartYScale(
+                        AxisMarks(position: .leading, values: .automatic(desiredCount: 20))
+                    }.chartXScale(
+                        domain: .automatic(includesZero: false, reversed: false)
+                    ).chartYScale(
                         domain: .automatic(includesZero: false, reversed: true)
                     )
+
             }
         }
     }
@@ -49,12 +66,12 @@ struct Standing: Identifiable {
 struct RaceStandingChart_Previews: PreviewProvider {
     static var previews: some View {
         let standings = (1...20).map { driver in
-            DriverStanding(name: String(describing: driver),standings: (0..<70).map { lap in
+            DriverStanding(name: String(describing: driver),standings: (1..<70).map { lap in
                 Standing(position: (1...20).randomElement()!, lap: lap)
             }, color: Color.random())
         }
 
-        return RaceStandingChart(standings: standings).previewLayout(PreviewLayout.fixed(width: UIScreen.main.bounds.width, height: 400))
+        return RaceStandingChart(standings: standings, laps: 70).previewLayout(PreviewLayout.fixed(width: UIScreen.main.bounds.width, height: 400))
     }
 }
 

@@ -24,7 +24,7 @@ struct RaceResultView: View {
                                 raceStandingView?.viewModel.onAppear()
                             }
                         } label: {
-                            Text("Lap Details".uppercased())
+                            Text("Lap by lap".uppercased())
                                 .textStyle(.buttonTitle).foregroundColor(.primary).padding()
                         }
                     }.border(.primary).frame(alignment: Alignment.leading)
